@@ -1,0 +1,48 @@
+{
+  "ps_id": "5096060",
+  "date": "2025-06-12",
+  "datasets": {
+    "pv_load": [
+      {
+        "time": "00:00",
+        "pv_forecast": 0,
+        "pv_real": 0,
+        "load_forecast": 600,
+        "load_real": 1600
+      }
+    ],
+    "price": [
+      {
+        "time": "00:00",
+        "price_buy": 0.62,
+        "price_sell": 0.5
+      }
+    ],
+    "ai_mode": [
+      {
+        "time": "00:00",
+        "battery_from_pv": 0,
+        "battery_from_grid": 0,
+        "battery_to_load": 1600,
+        "battery_to_grid": 0,
+        "soc": 0.52
+      }
+    ],
+    "self_mode": [
+      {
+        "time": "00:00",
+        "soc": 0.52,
+        "battery_from_pv": 0,
+        "battery_to_load": 1500,
+        "battery_from_grid": 0,
+        "battery_to_grid": 0
+      }
+    ],
+    "grid_power": [
+      {
+        "time": "00:00",
+        "grid_power": 0
+      }
+    ]
+  }
+}

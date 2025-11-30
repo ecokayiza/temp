@@ -1,0 +1,22 @@
+{
+  "rule_id": "STRING, 唯一标识",
+  "name": "STRING, 规则简名",
+  "category": "STRING, 归类 (arbitrage / self_consumption / protection)",
+  "priority": "INTEGER, 优先级 (冲突时谁说了算)",
+  
+  // RAG 检索的核心依据
+  "scenario_context": "STRING, 描述该规则适用的具体场景（用于向量嵌入）",
+  "match_tags": ["LIST", "keywords", "negative_price", "peak_shaving"],
+
+  // 逻辑定义 (给程序或大模型二次校验用)
+  "logic_condition": "STRING, 伪代码条件",
+
+  // 生成模板 (RAG 的填充素材)
+  "templates": {
+    "standard_explanation": "STRING, 标准解释话术",
+    "comparison_narrative": "STRING, 专门用于拉踩传统模式的话术"
+  },
+
+  // 数据槽位 (Prompt 填充时需要的数据)
+  "required_slots": ["LIST", "price", "soc_start", "soc_end"]
+}

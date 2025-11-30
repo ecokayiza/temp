@@ -1,0 +1,159 @@
+[
+  {
+    "rule_id": "RULE_001_ZERO_PRICE_ABSORB",
+    "name": "零/负电价极速吸纳",
+    "category": "arbitrage",
+    "priority": 10,
+    "scenario_context": "当电网价格降至0或负数，且光伏充足时，系统应全力将电池充满，视作获取‘免费能源’。",
+    "match_tags": ["zero_price", "negative_price", "full_charge", "surplus"],
+    "logic_condition": "grid_price <= 0.01 AND pv_power > load_power AND soc < 1.0",
+    "templates": {
+      "standard_explanation": "检测到 {time_period} 时段电价处于极低水平（{avg_price}元），甚至接近零成本。系统判定为‘免费储能’的最佳窗口，利用光伏盈余全力为电池充电。",
+      "comparison_narrative": "在该时段，AI 模式与传统模式均识别到了能源盈余，但 AI 更加激进地将 SOC 目标锁定为 100%，确保在后续电价上涨前‘满仓’，将每一分钱的购电成本都压缩至零。"
+    },
+    "required_slots": ["time_period", "avg_price", "soc_start", "soc_end"]
+  },
+  {
+    "rule_id": "RULE_002_PEAK_DISCHARGE_SAVING",
+    "name": "晚高峰削峰放电",
+    "category": "self_consumption",
+    "priority": 9,
+    "scenario_context": "在晚间用电高峰且电价昂贵时，利用白天存储的电量覆盖负载，停止从电网买电。",
+    "match_tags": ["peak_price", "high_price", "discharge", "cost_saving"],
+    "logic_condition": "price_level == 'high' AND load_power > pv_power AND soc > min_limit",
+    "templates": {
+      "standard_explanation": "在 {time_period} 的晚高峰时段，电价飙升至 {avg_price} 元。系统自动切换至‘削峰模式’，释放电池储存的电能以满足家庭负载，避免购买高价网电。",
+      "comparison_narrative": "传统模式往往在高峰到来前就过早耗尽电量，导致必须购买高价电。而 AI 模式通过白天的精准规划，成功将 SOC 从 {soc_start} 保持到高峰期使用，实现了该时段的零购电（或最低购电）。"
+    },
+    "required_slots": ["time_period", "avg_price", "soc_start", "grid_buy_energy"]
+  },
+  {
+    "rule_id": "RULE_003_SURPLUS_EXPORT_PROFIT",
+    "name": "光伏盈余最大化上网",
+    "category": "arbitrage",
+    "priority": 7,
+    "scenario_context": "电池已满且光伏发电远超负载，系统将多余电能全力送入电网以获取收益。",
+    "match_tags": ["battery_full", "surplus_export", "selling", "profit"],
+    "logic_condition": "soc >= 0.95 AND pv_power > load_power AND selling_price > 0",
+    "templates": {
+      "standard_explanation": "在 {time_period}，电池已接近满电状态（SOC {soc_end}），且光伏发电依然强劲。系统将溢出的 {grid_sell_energy} 瓦电能输送至电网。",
+      "comparison_narrative": "由于电池已满，AI 模式智能切换策略，不再强行充电，而是转为‘售电模式’。与传统模式相比，AI 更注重在满电后的余电变现效率，确保绿色能源不被浪费。"
+    },
+    "required_slots": ["time_period", "soc_end", "grid_sell_energy"]
+  },
+  {
+    "rule_id": "RULE_004_SMART_GRID_SUPPLEMENT",
+    "name": "低电量智能补给",
+    "category": "protection",
+    "priority": 5,
+    "scenario_context": "光伏不足且电池电量触底，必须从电网买电时，AI计算最小购买量以维持运转。",
+    "match_tags": ["battery_empty", "deficit", "grid_buy", "necessary_cost"],
+    "logic_condition": "soc <= min_limit AND pv_power < load_power",
+    "templates": {
+      "standard_explanation": "在 {time_period}，由于缺乏光伏且电池电量已耗尽（SOC {soc_end}），系统被迫从电网购买 {grid_buy_energy} 电能以维持家庭负载。",
+      "comparison_narrative": "虽然必须买电，但 AI 模式通过精确计算负载需求，仅购买维持系统运行的最小电量，避免了过度购电。相比之下，AI 能够更好地控制购电节奏，防止在不必要的高价时刻大量买入。"
+    },
+    "required_slots": ["time_period", "soc_end", "grid_buy_energy"]
+  },
+  {
+    "rule_id": "RULE_005_PRICE_TREND_HOLDING",
+    "name": "价格上涨前持仓",
+    "category": "planning",
+    "priority": 8,
+    "scenario_context": "当前电价虽然不低，但预测马上会更高。AI选择暂停放电或保留电量，等待最高价时刻。",
+    "match_tags": ["price_rising", "strategic_holding", "wait_for_peak"],
+    "logic_condition": "current_price < future_peak_price AND soc > 0.5",
+    "templates": {
+      "standard_explanation": "虽然 {time_period} 需要用电，但 AI 预测到后续电价将进一步上涨。因此，系统策略性地控制放电速度，保留了 {soc_end} 的电量。",
+      "comparison_narrative": "传统模式通常是有负载就放电，不看未来。AI 模式则识别到了价格上涨趋势（{trend}），特意为后续更贵的时段保留了‘弹药’，虽然当前可能买了一点电，但从全天来看是更省钱的。"
+    },
+    "required_slots": ["time_period", "trend", "soc_end"]
+    },
+    {
+    "rule_id": "RULE_006_NEG_PRICE_CURTAILMENT",
+    "name": "负电价光伏削波保护",
+    "category": "protection",
+    "priority": 100,
+    "scenario_context": "电价为负数，电池已满，且光伏功率大于负载。此时上网意味着付费，系统必须限制光伏输出。",
+    "match_tags": ["negative_price", "curtailment", "battery_full", "stop_export"],
+    "logic_condition": "price < 0 AND soc >= 0.98 AND pv_potential > load_power",
+    "templates": {
+      "standard_explanation": "在 {time_period}，电网处于负电价状态（{avg_price}元），且电池已饱和。为了防止向电网‘倒贴钱’，系统主动限制了光伏逆变器的输出功率。",
+      "comparison_narrative": "传统模式通常缺乏负价保护，会继续将多余光伏上网，导致用户产生罚款或亏损。AI 模式不仅停止了放电，甚至主动舍弃了部分光伏发电（削波），虽然浪费了阳光，但保护了您的钱包。"
+    },
+    "required_slots": ["time_period", "avg_price", "pv_curtailed_amount"]
+  },
+  {
+  "rule_id": "RULE_007_PRE_DAWN_TOPUP",
+  "name": "早高峰前战术补仓",
+  "category": "planning",
+  "priority": 6,
+  "scenario_context": "电池在夜间耗尽，但预测显示早间会有短暂的高价/高负荷时段，且光伏尚未开始工作。系统利用黎明前的低价微量充电。",
+  "match_tags": ["morning_peak", "pre_charge", "empty_battery", "forecast"],
+  "logic_condition": "time < sunrise AND soc < min_reserve AND future_price == 'peak'",
+  "templates": {
+    "standard_explanation": "系统预测到 {morning_peak_time} 将出现早高峰电价，而此时光伏尚未启动。因此在 {time_period} 利用谷电（{avg_price}元）进行了‘微量补仓’。",
+    "comparison_narrative": "传统模式此时会保持电池空仓，导致早高峰期间被迫购买高价电。AI 精确计算了日出前的用电缺口，只买入了刚好够用的便宜电（{grid_buy_energy}Wh），实现了精细化成本控制。"
+  },
+  "required_slots": ["time_period", "morning_peak_time", "avg_price", "grid_buy_energy"]
+  },
+  {
+  "rule_id": "RULE_008_HEALTH_OPTIMIZED_CHARGING",
+  "name": "电池健康涓流模式",
+  "category": "maintenance",
+  "priority": 4,
+  "scenario_context": "当前是低电价窗口，且窗口期很长。系统故意降低充电功率，以减少电池发热和损耗。",
+  "match_tags": ["battery_health", "slow_charge", "long_window", "efficiency"],
+  "logic_condition": "charge_window_duration > 4_hours AND current_charge_power < max_charge_power * 0.5",
+  "templates": {
+    "standard_explanation": "AI 识别到低电价时段 {time_period} 持续时间较长，因此主动降低了充电速率，以‘涓流’方式养护电池。",
+    "comparison_narrative": "传统模式一见到盈余就全功率猛充，容易加速电池老化。AI 模式在确保能充满的前提下，选择了对电池最友好的充电曲线，预计可延长电池寿命 {life_extension_percent}%。"
+  },
+  "required_slots": ["time_period", "life_extension_percent"]
+  },
+  {
+    "rule_id": "RULE_009_FORECAST_CORRECTION",
+    "name": "天气偏差紧急修正",
+    "category": "correction",
+    "priority": 9,
+    "scenario_context": "实际光伏发电远低于之前的预测值，系统动态取消原定的放电/卖电计划，转为保守保电。",
+    "match_tags": ["forecast_error", "cloudy", "plan_change", "conserve"],
+    "logic_condition": "real_pv < forecast_pv * 0.6 AND soc_trend == 'falling_faster_than_plan'",
+    "templates": {
+      "standard_explanation": "在 {time_period}，实际光伏发电量仅为预测值的 {performance_ratio}%（天气突变）。AI 实时感知到了这一偏差，紧急终止了原定的放电计划。",
+      "comparison_narrative": "传统模式无法感知天气预报的失准，可能会继续按惯性放电直到电池耗尽。AI 模式及时止损，保留了 {saved_soc}% 的电量以应对晚间需求，展现了动态应变能力。"
+    },
+    "required_slots": ["time_period", "performance_ratio", "saved_soc"]
+  },
+  {
+  "rule_id": "RULE_010_OPPORTUNISTIC_DUMP",
+  "name": "极端高价机会抛售",
+  "category": "arbitrage",
+  "priority": 11,
+  "scenario_context": "电价突破历史阈值（极高），系统忽略日常的自用保留比例，全功率向电网卖电。",
+  "match_tags": ["spike_price", "dumping", "max_profit", "rare_event"],
+  "logic_condition": "grid_price > historical_avg * 3.0",
+  "templates": {
+    "standard_explanation": "检测到 {time_period} 电价飙升至罕见的 {max_price} 元。系统判定为‘高价值机会’，暂时忽略自用预留，全速向电网售电。",
+    "comparison_narrative": "这是一次完美的市场捕捉。AI 模式利用这短暂的价格尖峰，在 {duration} 分钟内获利 {segment_revenue} 元。传统模式因缺乏市场敏感度，完全错失了这笔意外之财。"
+  },
+  "required_slots": ["time_period", "max_price", "duration", "segment_revenue"]
+  },
+  {
+    "rule_id": "RULE_011_ZERO_IMPORT_BALANCE",
+    "name": "零购电动态平衡",
+    "category": "self_consumption",
+    "priority": 7,
+    "scenario_context": "买电价格远高于卖电价格。系统精确调节电池放电功率 = (负载 - 光伏)，力求电网交互为0。",
+    "match_tags": ["zero_import", "load_following", "avoid_grid", "gap_filling"],
+    "logic_condition": "price_buy > price_sell * 1.5 AND load > pv",
+    "templates": {
+      "standard_explanation": "在 {time_period}，由于买入电价远高于卖出电价，AI 开启了‘零购电平衡’模式，精确控制电池输出以紧随负载波动。",
+      "comparison_narrative": "传统模式的充放电往往是粗糙的（全开全关）。AI 模式则像走钢丝一样，将电池放电功率精确控制在负载缺口上（误差<{error_margin}W），既不买高价电，也不贱卖珍贵的储能。"
+    },
+    "required_slots": ["time_period", "error_margin"]
+  }
+
+
+
+]
