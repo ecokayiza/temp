@@ -1,0 +1,347 @@
+{
+    "ps_id": "5096060",
+    "date": "2025-06-24",
+    "system_specs": {
+        "battery_capacity_kWh": 22.4,
+        "max_charge_power_W": 5000,
+        "max_discharge_power_W": 5000,
+        "soc_min_limit": 0.1,
+        "soc_max_limit": 1.0
+    },
+    "profit": {
+        "ai_mode": 0.76,
+        "self_mode": 0.0
+    },
+    "segments": [
+        {
+            "time_period": "00:00 - 06:45",
+            "period_type": "overnight_base_discharge",
+            "descriptions": {
+                "pv_load": {
+                    "avg_pv": 55.4,
+                    "avg_load": 1058.9,
+                    "trend": "deficit",
+                    "description": "此时段光伏产出微弱（平均55.4W），远无法满足较高的家庭负载需求（平均1058.9W），系统处于供能缺口状态。"
+                },
+                "price": {
+                    "avg_value": 0.03,
+                    "trend": "rising",
+                    "description": "平均电价维持在低位（0.03），但整体呈现上涨趋势。"
+                }
+            },
+            "ai_mode": {
+                "pv_action": {
+                    "to_battery": 0.0,
+                    "to_load": 0,
+                    "to_grid": 226.4,
+                    "description": "光伏能量在此期间未被直接用于电池充电或家庭负载供电。"
+                },
+                "grid_action": {
+                    "buy_energy": 61.2,
+                    "sell_energy": 280.0,
+                    "description": "系统与电网交互活跃，存在少量买入（61.2W）及向电网反向售电（280.0W）的行为。"
+                },
+                "battery_soc": {
+                    "start_soc": 0.64,
+                    "end_soc": 0.45,
+                    "trend": "decreasing",
+                    "description": "电池处于放电状态，SOC从0.64降至0.45，配合电网交互策略维持系统运行。"
+                }
+            },
+            "self_mode": {
+                "pv_action": {
+                    "to_battery": 0.0,
+                    "to_load": 55.4,
+                    "to_grid": 0,
+                    "description": "光伏产出全部优先用于补充家庭负载消耗。"
+                },
+                "grid_action": {
+                    "buy_energy": 0,
+                    "sell_energy": 0,
+                    "description": "期间无电网买卖电行为，完全依赖本地储能和光伏供电。"
+                },
+                "battery_soc": {
+                    "start_soc": 0.65,
+                    "end_soc": 0.39,
+                    "trend": "decreasing",
+                    "description": "由于完全切断电网补充，电池承担主要负荷，SOC从0.65显著下降至0.39，放电深度大于AI模式。"
+                }
+            }
+        },
+        {
+            "time_period": "07:00 - 11:45",
+            "period_type": "morning_depletion_before_negative_price",
+            "descriptions": {
+                "pv_load": {
+                    "avg_pv": 2800.0,
+                    "avg_load": 1550.0,
+                    "trend": "surplus",
+                    "description": "光伏发电强劲（均值2800.0W），远超平均负载（1550.0W），系统处于能源盈余状态。"
+                },
+                "price": {
+                    "avg_value": 0.06,
+                    "trend": "high",
+                    "description": "当前电价处于较高水平（均值0.06），是负电价时段到来前的高价窗口。"
+                }
+            },
+            "ai_mode": {
+                "pv_action": {
+                    "to_battery": 0.0,
+                    "to_load": 0,
+                    "to_grid": 2841.2,
+                    "description": "光伏能量未用于本地自用或充电，而是配合系统策略全额输出。"
+                },
+                "grid_action": {
+                    "buy_energy": 3300.0,
+                    "sell_energy": 2973.7,
+                    "description": "电网交互活跃，系统在价格下跌前积极售电（约2973.7W）以锁定收益。"
+                },
+                "battery_soc": {
+                    "start_soc": 0.44,
+                    "end_soc": 0.05,
+                    "trend": "decreasing",
+                    "description": "电池SOC从0.44迅速降至0.05，主动排空电量，为后续负电价时段的低成本充电预留空间。"
+                }
+            },
+            "self_mode": {
+                "pv_action": {
+                    "to_battery": 1370.0,
+                    "to_load": 1430.0,
+                    "to_grid": 0,
+                    "description": "遵循自发自用原则，光伏优先满足负载（1430.0W），余电存入电池（1370.0W）。"
+                },
+                "grid_action": {
+                    "buy_energy": 0,
+                    "sell_energy": 0,
+                    "description": "系统未与电网进行买卖交互，错失了利用高价差套利的机会。"
+                },
+                "battery_soc": {
+                    "start_soc": 0.37,
+                    "end_soc": 0.42,
+                    "trend": "stable",
+                    "description": "电池处于常规充电状态，SOC由0.37平稳上升至0.42。"
+                }
+            }
+        },
+        {
+            "time_period": "12:00 - 14:15",
+            "period_type": "charging_negative_price",
+            "descriptions": {
+                "pv_load": {
+                    "avg_pv": 3620.0,
+                    "avg_load": 265.0,
+                    "trend": "surplus",
+                    "description": "此时段光伏发电充沛（均值3620.0W），远超负载消耗（均值265.0W），系统能源处于盈余状态。"
+                },
+                "price": {
+                    "avg_value": -0.02,
+                    "trend": "rising",
+                    "description": "电价处于负值区间（均值-0.02），呈现上升趋势，是利用电网充电获利的最佳时机。"
+                }
+            },
+            "ai_mode": {
+                "pv_action": {
+                    "to_battery": 2850.0,
+                    "to_load": 770.0,
+                    "to_grid": 0,
+                    "description": "光伏电力被分配用于电池充电（2850.0W）及满足负载需求。"
+                },
+                "grid_action": {
+                    "buy_energy": 7420.0,
+                    "sell_energy": 0,
+                    "description": "系统智能识别负电价机会，从电网大量购电（7420.0W）进行极速充电以获取收益。"
+                },
+                "battery_soc": {
+                    "start_soc": 0.0,
+                    "end_soc": 0.98,
+                    "trend": "increasing",
+                    "description": "在光伏与电网双重充电下，电池电量从0.0快速提升至0.98，接近满充。"
+                }
+            },
+            "self_mode": {
+                "pv_action": {
+                    "to_battery": 3090.0,
+                    "to_load": 530.0,
+                    "to_grid": 0,
+                    "description": "光伏优先满足负载后，剩余能量（3090.0W）用于电池充电。"
+                },
+                "grid_action": {
+                    "buy_energy": 0,
+                    "sell_energy": 0,
+                    "description": "该模式未响应负电价信号，无电网购电行为，仅维持自发自用。"
+                },
+                "battery_soc": {
+                    "start_soc": 0.43,
+                    "end_soc": 0.64,
+                    "trend": "increasing",
+                    "description": "仅依赖光伏能源充电，电池电量稳步上升（0.43至0.64），充电效率低于AI模式。"
+                }
+            }
+        },
+        {
+            "time_period": "14:30 - 16:45",
+            "period_type": "battery_full_idle_export",
+            "descriptions": {
+                "pv_load": {
+                    "avg_pv": 1730.0,
+                    "avg_load": 895.0,
+                    "trend": "surplus",
+                    "description": "此时段光伏平均功率为1730.0W，远超平均负载895.0W，系统能源供应处于盈余状态。"
+                },
+                "price": {
+                    "avg_value": -0.0,
+                    "trend": "rising",
+                    "description": "平均电价维持在-0.0，整体呈现上升趋势。"
+                }
+            },
+            "ai_mode": {
+                "pv_action": {
+                    "to_battery": 0.0,
+                    "to_load": 0,
+                    "to_grid": 1788.9,
+                    "description": "由于电池已处于满电状态，光伏能量未存入电池，而是主要用于对外输出。"
+                },
+                "grid_action": {
+                    "buy_energy": 100.0,
+                    "sell_energy": 1788.9,
+                    "description": "系统执行积极的售电策略，向电网馈入平均1788.9W电力，仅保留微量买电（100.0W）。"
+                },
+                "battery_soc": {
+                    "start_soc": 1.0,
+                    "end_soc": 1.0,
+                    "trend": "stable",
+                    "description": "电池荷电状态（SOC）稳定维持在1.0（满电），处于闲置备用状态。"
+                }
+            },
+            "self_mode": {
+                "pv_action": {
+                    "to_battery": 870.0,
+                    "to_load": 860.0,
+                    "to_grid": 0,
+                    "description": "光伏能量被充分利用，在满足负载消耗（860.0W）的同时，将剩余能量（870.0W）存入电池。"
+                },
+                "grid_action": {
+                    "buy_energy": 0,
+                    "sell_energy": 0,
+                    "description": "系统实现完全自给自足，此时段与电网无买卖电交互。"
+                },
+                "battery_soc": {
+                    "start_soc": 0.66,
+                    "end_soc": 0.72,
+                    "trend": "increasing",
+                    "description": "电池处于持续充电状态，SOC由0.66稳步提升至0.72。"
+                }
+            }
+        },
+        {
+            "time_period": "17:00 - 20:45",
+            "period_type": "evening_peak_discharge",
+            "descriptions": {
+                "pv_load": {
+                    "avg_pv": 450.0,
+                    "avg_load": 1559.4,
+                    "trend": "deficit",
+                    "description": "晚高峰时段光伏平均发电量（450.0W）远低于平均负载（1559.4W），系统处于能源供给赤字状态。"
+                },
+                "price": {
+                    "avg_value": 0.14,
+                    "trend": "high",
+                    "description": "当前时段电价维持在较高水平（平均0.14），属于高价放电窗口期。"
+                }
+            },
+            "ai_mode": {
+                "pv_action": {
+                    "to_battery": 0.0,
+                    "to_load": 0,
+                    "to_grid": 679.9,
+                    "description": "光伏能量未直接用于负载供电或电池充电，而是根据算法策略进行调度。"
+                },
+                "grid_action": {
+                    "buy_energy": 788.9,
+                    "sell_energy": 814.3,
+                    "description": "系统与电网交互活跃，同时进行买电（788.9W）与卖电（814.3W）操作，以利用高电价时段进行套利或平衡调节。"
+                },
+                "battery_soc": {
+                    "start_soc": 1.0,
+                    "end_soc": 0.84,
+                    "trend": "decreasing",
+                    "description": "电池从满电状态（100%）开始放电以支持系统策略，电量降至84%。"
+                }
+            },
+            "self_mode": {
+                "pv_action": {
+                    "to_battery": 0.0,
+                    "to_load": 450.0,
+                    "to_grid": 0,
+                    "description": "光伏发电量（450.0W）优先且全部用于满足家庭负载需求。"
+                },
+                "grid_action": {
+                    "buy_energy": 0,
+                    "sell_energy": 0,
+                    "description": "系统未与电网进行能量交换，完全依赖自发自用及电池补充。"
+                },
+                "battery_soc": {
+                    "start_soc": 0.72,
+                    "end_soc": 0.61,
+                    "trend": "decreasing",
+                    "description": "由于光伏不足以覆盖负载，电池持续放电填补缺口，SOC从72%下降至61%。"
+                }
+            }
+        },
+        {
+            "time_period": "21:00 - 23:45",
+            "period_type": "late_night_discharge",
+            "descriptions": {
+                "pv_load": {
+                    "avg_pv": 0.0,
+                    "avg_load": 2041.7,
+                    "trend": "deficit",
+                    "description": "夜间时段无光伏发电，家庭平均负载较高（2041.7W），系统处于电力净消耗状态。"
+                },
+                "price": {
+                    "avg_value": 0.06,
+                    "trend": "falling",
+                    "description": "当前电价处于低位（平均0.06）并呈下降趋势，为能源调度提供了有利的成本空间。"
+                }
+            },
+            "ai_mode": {
+                "pv_action": {
+                    "to_battery": 0.0,
+                    "to_load": 0,
+                    "to_grid": 1020.8,
+                    "description": "此时段无光伏产出。"
+                },
+                "grid_action": {
+                    "buy_energy": 985.7,
+                    "sell_energy": 1325.0,
+                    "description": "系统与电网交互活跃，在补充部分电力的同时（平均买电985.7W），积极将电池余电出售给电网（平均卖电1325.0W）以获取收益。"
+                },
+                "battery_soc": {
+                    "start_soc": 0.82,
+                    "end_soc": 0.59,
+                    "trend": "decreasing",
+                    "description": "电池SOC从82%显著下降至59%，主要用于支撑高负载需求及向电网反向输电。"
+                }
+            },
+            "self_mode": {
+                "pv_action": {
+                    "to_battery": 0.0,
+                    "to_load": 0,
+                    "to_grid": 0,
+                    "description": "此时段无光伏产出。"
+                },
+                "grid_action": {
+                    "buy_energy": 0,
+                    "sell_energy": 0,
+                    "description": "系统保持零电网交互，未进行买电或卖电操作，完全实现电力自给自足。"
+                },
+                "battery_soc": {
+                    "start_soc": 0.6,
+                    "end_soc": 0.4,
+                    "trend": "decreasing",
+                    "description": "电池SOC从60%降至40%，储能系统持续放电以全额承担家庭负载消耗。"
+                }
+            }
+        }
+    ]
+}

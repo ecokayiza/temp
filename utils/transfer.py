@@ -12,6 +12,7 @@ from utils.api import ChatClient
 
 import time
 
+# transfer origin data to input data for the AI model
 class Transfer:
     def __init__(self):
         self.client = ChatClient()
@@ -112,6 +113,33 @@ class Transfer:
             json.dump(output, f, indent=4, ensure_ascii=False)
         print(f"Saved to {output_path}")
 
+    # df, contains:
+    """
+    索引 (Index):
+    Time: 时间戳，从当天的 00:00 到 23:45，每 15 分钟一个点（共 96 行）。
+    列 (Columns):
+
+    PV & Load (光伏与负载)
+
+    pv_forecast: 光伏预测功率
+    pv_real: 光伏实际功率
+    load_forecast: 负载预测功率
+    load_real: 负载实际功率
+    Price (电价)
+
+    price_buy: 买电价格
+    price_sell: 卖电价格
+    AI Mode (AI 模式数据) - 前缀 ai_
+
+    ai_soc: 电池荷电状态 (SOC)
+    ai_battery_from_pv: 电池从光伏充电功率
+    ai_battery_from_grid: 电池从电网充电功率
+    ai_battery_to_load: 电池向负载放电功率
+    ai_battery_to_grid: 电池向电网放电功率
+    ai_grid_power: 电网交互功率（正数为买电，负数为卖电，来自 grid_power 数据集）
+    ai_total_power: 计算字段，电池总净功率（放电为正，充电为负）。
+    计算公式：(to_load + to_grid) - (from_pv + from_grid)
+    """
     def _prepare_dataframe(self, data, base_date):
         datasets = data.get('datasets', {})
         
@@ -132,6 +160,7 @@ class Transfer:
         df_price = to_df(datasets.get('price', []))
         df_ai = to_df(datasets.get('ai_mode', []))
         df_self = to_df(datasets.get('self_mode', []))
+        df_grid = to_df(datasets.get('grid_power', []))
         
         df_ai = df_ai.add_prefix('ai_')
         df_self = df_self.add_prefix('self_')
@@ -147,8 +176,9 @@ class Transfer:
         df_price = reindex(df_price).ffill().bfill()
         df_ai = reindex(df_ai)
         df_self = reindex(df_self)
+        df_grid = reindex(df_grid)
         
-        df_final = pd.concat([df_pv, df_price, df_ai, df_self], axis=1)
+        df_final = pd.concat([df_pv, df_price, df_ai, df_self, df_grid], axis=1)
         
         # Calculate total battery power (Discharge +, Charge -)
         for mode in ['ai', 'self']:
@@ -172,7 +202,12 @@ class Transfer:
     def _calc_profit(self, df, mode):
         prefix = f"{mode}_"
         bat_total = df[f'{prefix}total_power']
-        grid_net = df['load_real'] - df['pv_real'] - bat_total
+        
+        grid_col = f'{prefix}grid_power'
+        if grid_col in df.columns:
+            grid_net = df[grid_col]
+        else:
+            grid_net = df['load_real'] - df['pv_real'] - bat_total
         
         interval = 0.25
         fetch = grid_net.clip(lower=0) * interval / 1000
@@ -184,18 +219,38 @@ class Transfer:
         return revenue - cost
 
     def _get_segments_from_api(self, df):
-        
-        csv_data = "Time,AI_SOC,Self_SOC\n"
+        # data given
+        csv_data = "Time,Price,AI_SOC,AI_Bat_Power,AI_Grid_Power,Self_SOC,Self_Bat_Power,Self_Grid_Power\n"
         # Iterate over all rows (15-min interval)
         for idx, row in df.iterrows():
             time_str = idx.strftime("%H:%M")
-            csv_data += f"{time_str},{row['ai_soc']:.2f},{row['self_soc']:.2f}\n"
+            
+            def g(k): return row.get(k, 0)
+            
+            price = g('price_buy')
+            
+            ai_soc = g('ai_soc')
+            ai_bat = g('ai_total_power')
+            ai_grid = g('ai_grid_power')
+            
+            self_soc = g('self_soc')
+            self_bat = g('self_total_power')
+            self_grid = g('self_grid_power')
+
+            csv_data += f"{time_str},{price:.2f},{ai_soc:.2f},{ai_bat:.0f},{ai_grid:.0f},{self_soc:.2f},{self_bat:.0f},{self_grid:.0f}\n"
             
         prompt = f"""
-        Analyze the following 15-minute interval energy data (Battery SOC for AI Mode and Self Mode).
-        Divide the day (00:00 - 23:45) into 4 to 8 meaningful time segments based on battery behavior.
+        Analyze the following 15-minute interval energy data.
+        Divide the day (00:00 - 23:45) into 4 to 8 meaningful time segments based on battery behavior, grid interaction, and electricity price.
         Segments can start and end at any 15-minute mark (e.g., 12:30 - 14:15).
-        Examples of period types: "charging", "discharging", "idle", "rapid_change".
+        
+        Columns:
+        - Price: Electricity buying price.
+        - AI_SOC / Self_SOC: State of Charge (0-1).
+        - AI_Bat_Power / Self_Bat_Power: Battery power (Positive = Discharging, Negative = Charging).
+        - AI_Grid_Power / Self_Grid_Power: Grid power (Positive = Buying, Negative = Selling).
+
+        Examples of period types: "charging_low_price", "discharging_high_price", "peak_shaving", "idle", "solar_charging".
         
         Data:
         {csv_data}
@@ -234,7 +289,12 @@ class Transfer:
             pv_to_bat = abs(sub_df[f'{prefix}battery_from_pv']).mean()
             
             bat_total = sub_df[f'{prefix}total_power']
-            grid_net = sub_df['load_real'] - sub_df['pv_real'] - bat_total
+            
+            grid_col = f'{prefix}grid_power'
+            if grid_col in sub_df.columns:
+                grid_net = sub_df[grid_col]
+            else:
+                grid_net = sub_df['load_real'] - sub_df['pv_real'] - bat_total
             
             # Handle NaNs for empty slices or no matching conditions
             total_export = abs(grid_net[grid_net < 0]).mean()

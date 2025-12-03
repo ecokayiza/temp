@@ -13,7 +13,7 @@ class ChatClient:
         
         # 优先使用传入参数，其次环境变量，最后使用默认值
 
-        self.api_key = api_key or os.environ.get("OPENAI_API_KEY") or "sk-DNxxvBTwVd5epbiUJEUAr3Gxic2QtDr2Asd2yuiYgHoeLNJW"
+        self.api_key = api_key or os.environ.get("OPENAI_API_KEY")
         self.base_url = base_url or "https://api.chataiapi.com/v1"
         self.model = model
         
@@ -224,18 +224,8 @@ if __name__ == "__main__":
     print("\n--- 连通测试 (Chat History) ---")
     try:
         client.clear_history()
-        print("User: 我叫小明")
-        res1 = client.chat("我叫小明")
-        print(f"AI: {res1}")
-        
-        print("User: 我叫什么名字？")
-        res2 = client.chat("我叫什么名字？")
-        print(f"AI: {res2}")
-        
-        if "小明" in res2:
-            print("✅ 多轮对话测试成功")
-        else:
-            print("❌ 多轮对话测试失败")
-            
+        print("User: Who are you?")
+        res1 = client.chat("Who are you?")
+        print(f"AI: {res1}")            
     except Exception as e:
         print(f"测试失败: {e}")
