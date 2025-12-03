@@ -83,6 +83,8 @@ class Transfer:
             }
 
             segment_data = {
+                "start_time": seg['start_time'],
+                "end_time": seg['end_time'],
                 "time_period": f"{seg['start_time']} - {seg['end_time']}",
                 "period_type": seg['period_type'],
                 "descriptions": descriptions_data, # PV/Load, Price descriptions with stats

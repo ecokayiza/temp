@@ -10,7 +10,7 @@ import glob
 class Drawer:
     
     @staticmethod
-    def draw_combined_chart(json_data, output_path='combined_chart.png'):
+    def draw_combined_chart(json_data, output_path='combined_chart.png', segments=None):
         """
         Draws all figures in one graph (subplots) based on the provided JSON data.
         """
@@ -66,6 +66,8 @@ class Drawer:
         Drawer._plot_battery(ax_self, df_self, "self-consumption mode", ax_pv)
         Drawer._plot_grid_comparison(ax_grid, df_grid_r)
 
+        if segments:
+            Drawer._plot_segments([ax_pv, ax_price, ax_ai, ax_self, ax_grid], segments, base_date)
 
         # 5. Global Formatting
         fig.suptitle(f"ps_id:{data.get('ps_id','N/A')} ,date:{base_date_str}, AI mode running result...", fontsize=14, y=0.995)
@@ -77,6 +79,56 @@ class Drawer:
         plt.tight_layout()
         plt.savefig(output_path, bbox_inches='tight')
         print(f"Chart saved to {output_path}")
+
+    @staticmethod
+    def _plot_segments(axes, segments, base_date):
+        if not segments: return
+        
+        for i, seg in enumerate(segments):
+            start_str = seg.get('start_time')
+            end_str = seg.get('end_time')
+            
+            # Fallback: parse from time_period if start/end are missing
+            if not start_str or not end_str:
+                tp = seg.get('time_period', '')
+                if ' - ' in tp:
+                    parts = tp.split(' - ')
+                    if len(parts) == 2:
+                        start_str = parts[0].strip()
+                        end_str = parts[1].strip()
+            
+            if not start_str or not end_str:
+                continue
+
+            p_type = seg.get('period_type', 'N/A')
+            
+            try:
+                t_start = datetime.combine(base_date, datetime.strptime(start_str, "%H:%M").time())
+                t_end = datetime.combine(base_date, datetime.strptime(end_str, "%H:%M").time())
+                
+                if t_end <= t_start:
+                     if end_str == "00:00":
+                         t_end += timedelta(days=1)
+                
+                # Draw vertical dashed lines on all subplots
+                for ax in axes:
+                    ax.axvline(x=t_start, color='k', linestyle='--', linewidth=1, alpha=0.5)
+                    # ax.axvline(x=t_end, color='k', linestyle='--', linewidth=0.5, alpha=0.3)
+                
+                # Add label on the top subplot
+                ax_top = axes[0]
+                mid_time = t_start + (t_end - t_start) / 2
+                
+                # Alternate vertical position to avoid overlap
+                trans = ax_top.get_xaxis_transform()
+                y_pos = 1.02 + (0.06 * (i % 2))
+                
+                ax_top.text(mid_time, y_pos, p_type, transform=trans,
+                            ha='center', va='bottom', fontsize=9, fontweight='bold',
+                            bbox=dict(boxstyle="round,pad=0.2", fc="white", ec="gray", alpha=0.9))
+                            
+            except Exception as e:
+                print(f"Error drawing segment {seg}: {e}")
 
     @staticmethod
     def _prepare_pv_load(data, base_date):
@@ -303,15 +355,23 @@ if __name__ == "__main__":
                         name = os.path.splitext(os.path.basename(fp))[0]
                         out_path = os.path.join(output_dir, f"{name}.png")
 
-                        if os.path.exists(out_path):
-                            print(f"Skipping {fp}, output already exists at {out_path}")
-                            continue
-
                         with open(fp, 'r', encoding='utf-8') as f:
                             data = json.load(f)
                         
+                        # Try to load segments
+                        segments = None
+                        seg_path = os.path.join(base_dir, "../series_input", f"{name}.json")
+                        if os.path.exists(seg_path):
+                            try:
+                                with open(seg_path, 'r', encoding='utf-8') as f_seg:
+                                    seg_data = json.load(f_seg)
+                                    segments = seg_data.get('segments', [])
+                                    print(f"  Loaded {len(segments)} segments from {seg_path}")
+                            except Exception as e:
+                                print(f"  Error loading segments: {e}")
+
                         print(f"Processing {fp} -> {out_path}")
-                        Drawer.draw_combined_chart(data, output_path=out_path)
+                        Drawer.draw_combined_chart(data, output_path=out_path, segments=segments)
                     except Exception as e:
                         print(f"Failed processing {fp}: {e}")
     except Exception as e:
