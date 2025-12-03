@@ -187,17 +187,17 @@ class Transfer:
         # Use full 15-min data for better granularity
         # df_hourly = df.resample('1H').mean()
         
-        csv_data = "Time,PV,Load,Price,AI_SOC,Self_SOC\n"
+        csv_data = "Time,AI_SOC,Self_SOC\n"
         # Iterate over all rows (15-min interval)
         for idx, row in df.iterrows():
             time_str = idx.strftime("%H:%M")
-            csv_data += f"{time_str},{row['pv_real']:.0f},{row['load_real']:.0f},{row['price_buy']:.2f},{row['ai_soc']:.2f},{row['self_soc']:.2f}\n"
+            csv_data += f"{time_str},{row['ai_soc']:.2f},{row['self_soc']:.2f}\n"
             
         prompt = f"""
-        Analyze the following 15-minute interval energy data (PV, Load, Price, Battery SOC).
-        Divide the day (00:00 - 23:45) into 4 to 8 meaningful time segments based on energy behavior and electricity price.
+        Analyze the following 15-minute interval energy data (Battery SOC for AI Mode and Self Mode).
+        Divide the day (00:00 - 23:45) into 4 to 8 meaningful time segments based on battery behavior.
         Segments can start and end at any 15-minute mark (e.g., 12:30 - 14:15).
-        Examples of period types: "valley_charging", "peak_discharging", "solar_self_consumption", "idle", "grid_interaction".
+        Examples of period types: "charging", "discharging", "idle", "rapid_change".
         
         Data:
         {csv_data}

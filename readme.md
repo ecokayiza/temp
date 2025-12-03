@@ -11,9 +11,10 @@
 
 *   `./utils` 文件夹下是辅助脚本
     *   `api.py`: api调用 gemini-3-pro preview
-    *   `gen_proba_data.py`: 从图大致猜原始数据点
-    *   `draw.py`: 生成可视化图表的脚本
-    *   `transfer.py`: 将原始数据转换为模型输入格式的脚本
+    *   `slice_graph.py`: 将原始图分段
+    *   `gen_proba_data.py`: 从分段图大致猜原始数据点
+    *   `draw.py`: 猜的数据点可视化进行对比
+    *   [important] `transfer.py`: 将原始数据转换为模型输入格式的脚本
 
 ### 流程
 

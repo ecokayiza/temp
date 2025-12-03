@@ -2,6 +2,7 @@ import os
 import json
 import re
 import sys
+import time
 from datetime import datetime
 
 # Add parent directory to path to import utils
@@ -10,7 +11,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from utils.api import ChatClient
 
 def generate_series_data():
-    input_dir = r"c:\Users\22638\Desktop\sungrow\prepare\AI模式欧洲典型电站分析20250717\2025-06-01_2025-06-30_5096060_empirical_result"
+    slices_dir = r"c:\Users\22638\Desktop\sungrow\prepare\AI模式欧洲典型电站分析20250717\slices"
     output_dir = r"c:\Users\22638\Desktop\sungrow\prepare\series"
     
     if not os.path.exists(output_dir):
@@ -18,70 +19,67 @@ def generate_series_data():
 
     client = ChatClient()
     
-    # List all png files
-    files = [f for f in os.listdir(input_dir) if f.endswith(".png")]
+    # Get all files in slices dir
+    all_files = os.listdir(slices_dir)
     
-    for file in files:
-        # Extract date from filename: 5096060_2025-06-06_empirical_result_plot.png
-        match = re.search(r"(\d{4}-\d{2}-\d{2})", file)
-        if not match:
-            print(f"Skipping {file}, no date found.")
-            continue
+    # Group by date
+    # Filename format: 5096060_2025-06-12_empirical_result_plot_slice_1.png
+    date_files = {}
+    for f in all_files:
+        if not f.endswith(".png"): continue
+        match = re.search(r"(\d{4}-\d{2}-\d{2})", f)
+        if match:
+            date_str = match.group(1)
+            if date_str not in date_files:
+                date_files[date_str] = {}
             
-        date_str = match.group(1)
+            # Determine slice number
+            if "slice_1" in f: date_files[date_str][1] = f
+            elif "slice_2" in f: date_files[date_str][2] = f
+            elif "slice_3" in f: date_files[date_str][3] = f
+            elif "slice_4" in f: date_files[date_str][4] = f
+            elif "slice_5" in f: date_files[date_str][5] = f
+
+    for date_str, slices in date_files.items():
         output_path = os.path.join(output_dir, f"{date_str}.json")
-        
         if os.path.exists(output_path):
             print(f"Skipping {date_str}, already exists.")
             continue
             
-        print(f"Processing {date_str} from {file}...")
-        image_path = os.path.join(input_dir, file)
+        if len(slices) != 5:
+            print(f"Skipping {date_str}, incomplete slices (found {len(slices)}).")
+            continue
+
+        print(f"Processing {date_str}...")
         
-        prompt = f"""
-        You are an expert data extractor. I will provide you with an image containing several charts showing the operation of a photovoltaic energy storage system for the date {date_str}.
+        # Data storage for this date
+        # We will store by time key to merge later
+        merged_data = {} # "00:00": { ... }
         
-        Please extract the time-series data from these charts for the entire day (00:00 to 23:45) at 15-minute intervals (96 points).
-        
-        The charts likely show:
-        1. PV Power and Load Power.
-        2. Electricity Price.
-        3. Battery SOC (AI Mode and Self Mode).
-        4. Battery Power and Grid Power.
-        
-        Return the data in CSV format with the following headers:
-        Time,PV_Real,Load_Real,Price_Buy,Price_Sell,AI_SOC,AI_Bat_In,AI_Bat_Out,AI_Grid_In,AI_Grid_Out,Self_SOC,Self_Bat_In,Self_Bat_Out,Self_Grid_In,Self_Grid_Out
-        
-        Where:
-        - Time: HH:MM (00:00, 00:15, ... 23:45)
-        - PV_Real, Load_Real: Power in Watts (or kW, convert to Watts if needed, check axis).
-        - Price_Buy, Price_Sell: Currency/kWh.
-        - AI_SOC, Self_SOC: 0.0 to 1.0.
-        - AI_Bat_In: Power charging the battery in AI mode (Watts).
-        - AI_Bat_Out: Power discharging the battery in AI mode (Watts).
-        - AI_Grid_In: Power bought from grid in AI mode (Watts).
-        - AI_Grid_Out: Power sold to grid in AI mode (Watts).
-        - Self_...: Same for Self mode.
-        
-        IMPORTANT:
-        - Strictly 96 rows of data.
-        - Estimate values from the curves.
-        - Return ONLY the CSV data, no markdown, no explanations.
-        """
-        
+        # Initialize time keys
+        for h in range(24):
+            for m in [0, 15, 30, 45]:
+                t_str = f"{h:02d}:{m:02d}"
+                merged_data[t_str] = {}
+
+        # Process each slice
         try:
-            response = client.generate(prompt, image_path=image_path, json_format=False)
+            # Slice 1: PV & Load
+            process_slice(client, os.path.join(slices_dir, slices[1]), date_str, 1, merged_data)
+
+            # Slice 2: Price
+            process_slice(client, os.path.join(slices_dir, slices[2]), date_str, 2, merged_data)
             
-            # Clean up response
-            csv_content = response
-            if "```csv" in response:
-                csv_content = response.split("```csv")[1].split("```")[0]
-            elif "```" in response:
-                csv_content = response.split("```")[1].split("```")[0]
+            # Slice 3: AI Mode
+            process_slice(client, os.path.join(slices_dir, slices[3]), date_str, 3, merged_data)
             
-            lines = csv_content.strip().split('\n')
-            headers = lines[0].split(',')
+            # Slice 4: Self Mode
+            process_slice(client, os.path.join(slices_dir, slices[4]), date_str, 4, merged_data)
             
+            # Slice 5: Grid Power
+            process_slice(client, os.path.join(slices_dir, slices[5]), date_str, 5, merged_data)
+            
+            # Construct final JSON
             datasets = {
                 "pv_load": [],
                 "price": [],
@@ -90,69 +88,51 @@ def generate_series_data():
                 "grid_power": []
             }
             
-            for line in lines[1:]:
-                parts = line.split(',')
-                if len(parts) < 15: continue
+            sorted_times = sorted(merged_data.keys())
+            
+            for t in sorted_times:
+                d = merged_data[t]
                 
-                # Parse values (handle potential whitespace)
-                vals = [p.strip() for p in parts]
-                t = vals[0]
+                # Helper to get value safely
+                def g(k): return d.get(k, 0.0)
                 
-                try:
-                    # Helper to safe float
-                    def f(x): return float(x) if x else 0.0
-                    
-                    datasets["pv_load"].append({
-                        "time": t,
-                        "pv_forecast": 0, # Not in CSV, assume 0
-                        "pv_real": f(vals[1]),
-                        "load_forecast": 0,
-                        "load_real": f(vals[2])
-                    })
-                    
-                    datasets["price"].append({
-                        "time": t,
-                        "price_buy": f(vals[3]),
-                        "price_sell": f(vals[4])
-                    })
-                    
-                    # AI Mode
-                    # Infer flow directions if needed, but here we asked for In/Out explicitly
-                    datasets["ai_mode"].append({
-                        "time": t,
-                        "battery_from_pv": f(vals[6]), # Simplified assumption: Bat_In comes from PV? 
-                        # Actually Bat_In could be from Grid too. 
-                        # But for now let's map Bat_In to battery_from_pv and 0 to from_grid unless we have more info.
-                        # Wait, the prompt asked for AI_Bat_In. 
-                        # Let's assume AI_Bat_In is total charge. 
-                        # We need to split it. 
-                        # If Price is low, maybe from grid? 
-                        # For simplicity, let's put it all in battery_from_pv for now, or split if we can.
-                        # Actually, let's just map it directly for now.
-                        "battery_from_pv": f(vals[6]), 
-                        "battery_from_grid": 0, # Hard to distinguish without more logic
-                        "battery_to_load": f(vals[7]),
-                        "battery_to_grid": 0,
-                        "soc": f(vals[5])
-                    })
-                    
-                    datasets["self_mode"].append({
-                        "time": t,
-                        "soc": f(vals[10]),
-                        "battery_from_pv": f(vals[11]),
-                        "battery_to_load": f(vals[12]),
-                        "battery_from_grid": 0,
-                        "battery_to_grid": 0
-                    })
-                    
-                    datasets["grid_power"].append({
-                        "time": t,
-                        "grid_power": f(vals[8]) - f(vals[9]) # Net grid? In - Out
-                    })
-                    
-                except ValueError as e:
-                    print(f"Error parsing line {line}: {e}")
-                    continue
+                datasets["pv_load"].append({
+                    "time": t,
+                    "pv_forecast": g("PV_Forecast"), 
+                    "pv_real": g("PV_Real"),
+                    "load_forecast": g("Load_Forecast"),
+                    "load_real": g("Load_Real")
+                })
+                
+                datasets["price"].append({
+                    "time": t,
+                    "price_buy": g("Price_Buy"),
+                    "price_sell": g("Price_Sell")
+                })
+                
+                datasets["ai_mode"].append({
+                    "time": t,
+                    "soc": g("AI_SOC"),
+                    "battery_from_pv": g("AI_Bat_From_PV"),
+                    "battery_from_grid": g("AI_Bat_From_Grid"),
+                    "battery_to_load": g("AI_Bat_To_Load"),
+                    "battery_to_grid": g("AI_Bat_To_Grid")
+                })
+                
+                datasets["self_mode"].append({
+                    "time": t,
+                    "soc": g("Self_SOC"),
+                    "battery_from_pv": g("Self_Bat_From_PV"),
+                    "battery_from_grid": g("Self_Bat_From_Grid"),
+                    "battery_to_load": g("Self_Bat_To_Load"),
+                    "battery_to_grid": g("Self_Bat_To_Grid")
+                })
+                
+                datasets["grid_power"].append({
+                    "time": t,
+                    "ai_grid_power": g("AI_Grid_Power"),
+                    "self_grid_power": g("Self_Grid_Power")
+                })
 
             final_json = {
                 "ps_id": "5096060",
@@ -163,9 +143,136 @@ def generate_series_data():
             with open(output_path, 'w', encoding='utf-8') as f:
                 json.dump(final_json, f, indent=2, ensure_ascii=False)
             print(f"Saved {output_path}")
-            
+
         except Exception as e:
             print(f"Error processing {date_str}: {e}")
+
+def process_slice(client, image_path, date_str, slice_num, merged_data):
+    # Define prompts based on slice_num
+    if slice_num == 1:
+        prompt = f"""
+        You are an expert data extractor. Extract time-series data from this PV & Load Power chart for date {date_str}.
+        Time range: 00:00 to 23:45 (15-min intervals, 96 points).
+        
+        Lines:
+        - PV Real Power: Dim blue line with GREEN area.
+        - Load Real Power: Red line with ORANGE area.
+        - PV Forecast: Green line.
+        - Load Forecast: Pink line.
+        
+        Return CSV with headers: Time,PV_Real,PV_Forecast,Load_Real,Load_Forecast
+        Values in Watts (W).
+        """
+        headers = ["Time", "PV_Real", "PV_Forecast", "Load_Real", "Load_Forecast"]
+        
+    elif slice_num == 2:
+        prompt = f"""
+        You are an expert data extractor. Extract time-series data from this Electricity Price chart for date {date_str}.
+        Time range: 00:00 to 23:45 (15-min intervals, 96 points).
+        
+        Lines:
+        - Buying Price: Orange line.
+        - Selling Price: Dim blue line.
+        
+        Return CSV with headers: Time,Price_Buy,Price_Sell
+        Values in Currency/kWh.
+        """
+        headers = ["Time", "Price_Buy", "Price_Sell"]
+        
+    elif slice_num == 3:
+        prompt = f"""
+        You are an expert data extractor. Extract time-series data from this AI Mode Battery Actions chart for date {date_str}.
+        Time range: 00:00 to 23:45 (15-min intervals, 96 points).
+        
+        - SOC: Red curve (0.0 to 1.0).
+        - Battery Charging from PV: GREEN area BELOW axis.
+        - Battery Charging from Grid: YELLOW area BELOW axis.
+        - Battery Discharging to Load: ORANGE area ABOVE axis.
+        - Battery Discharging to Grid: BLUE area ABOVE axis.
+        
+        Return CSV with headers: Time,AI_SOC,AI_Bat_From_PV,AI_Bat_From_Grid,AI_Bat_To_Load,AI_Bat_To_Grid
+        Power values in Watts (W). SOC is 0.0-1.0.
+        """
+        headers = ["Time", "AI_SOC", "AI_Bat_From_PV", "AI_Bat_From_Grid", "AI_Bat_To_Load", "AI_Bat_To_Grid"]
+
+    elif slice_num == 4:
+        prompt = f"""
+        You are an expert data extractor. Extract time-series data from this Self Mode Battery Actions chart for date {date_str}.
+        Time range: 00:00 to 23:45 (15-min intervals, 96 points).
+        
+        - SOC: Red curve (0.0 to 1.0).
+        - Battery Charging from PV: GREEN area BELOW axis.
+        - Battery Charging from Grid: YELLOW area BELOW axis.
+        - Battery Discharging to Load: ORANGE area ABOVE axis.
+        - Battery Discharging to Grid: BLUE area ABOVE axis.
+        
+        Return CSV with headers: Time,Self_SOC,Self_Bat_From_PV,Self_Bat_From_Grid,Self_Bat_To_Load,Self_Bat_To_Grid
+        Power values in Watts (W). SOC is 0.0-1.0.
+        """
+        headers = ["Time", "Self_SOC", "Self_Bat_From_PV", "Self_Bat_From_Grid", "Self_Bat_To_Load", "Self_Bat_To_Grid"]
+
+    elif slice_num == 5:
+        prompt = f"""
+        You are an expert data extractor. Extract time-series data from this Grid Power Actions chart for date {date_str}.
+        Time range: 00:00 to 23:45 (15-min intervals, 96 points).
+        
+        - AI Mode Grid Power: ORANGE area/line.
+        - Self Mode Grid Power: GREEN area/line.
+        
+        Coordinate System:
+        - Values ABOVE the axis (Positive) represent BUYING from Grid (Import).
+        - Values BELOW the axis (Negative) represent SELLING to Grid (Export).
+        
+        Return CSV with headers: Time,AI_Grid_Power,Self_Grid_Power
+        Values in Watts (W).
+        """
+        headers = ["Time", "AI_Grid_Power", "Self_Grid_Power"]
+
+    # Call API with retry
+    max_retries = 3
+    for attempt in range(max_retries):
+        try:
+            response = client.generate(prompt, image_path=image_path, json_format=False)
+            
+            # Parse CSV
+            csv_content = response
+            if "```csv" in response:
+                csv_content = response.split("```csv")[1].split("```")[0]
+            elif "```" in response:
+                csv_content = response.split("```")[1].split("```")[0]
+            
+            lines = csv_content.strip().split('\n')
+            # Skip header
+            if "Time" in lines[0]:
+                lines = lines[1:]
+                
+            for line in lines:
+                parts = line.split(',')
+                if len(parts) < len(headers): continue
+                
+                vals = [p.strip() for p in parts]
+                t = vals[0]
+                
+                # Normalize time format if needed (e.g. 0:00 -> 00:00)
+                if len(t) == 4 and t[1] == ':': t = '0' + t
+                
+                if t in merged_data:
+                    for i in range(1, len(headers)):
+                        key = headers[i]
+                        try:
+                            val = float(vals[i]) if vals[i] else 0.0
+                        except:
+                            val = 0.0
+                        merged_data[t][key] = val
+            
+            print(f"  Slice {slice_num} processed.")
+            return
+            
+        except Exception as e:
+            print(f"  Error slice {slice_num} attempt {attempt}: {e}")
+            time.sleep(5)
+            
+    raise Exception(f"Failed to process slice {slice_num}")
 
 if __name__ == "__main__":
     generate_series_data()

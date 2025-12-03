@@ -1,0 +1,3184 @@
+{
+  "ps_id": "5096060",
+  "date": "2025-06-19",
+  "datasets": {
+    "pv_load": [
+      {
+        "time": "00:00",
+        "pv_forecast": 0.0,
+        "pv_real": 0.0,
+        "load_forecast": 1160.0,
+        "load_real": 900.0
+      },
+      {
+        "time": "00:15",
+        "pv_forecast": 0.0,
+        "pv_real": 0.0,
+        "load_forecast": 1160.0,
+        "load_real": 850.0
+      },
+      {
+        "time": "00:30",
+        "pv_forecast": 0.0,
+        "pv_real": 0.0,
+        "load_forecast": 1160.0,
+        "load_real": 800.0
+      },
+      {
+        "time": "00:45",
+        "pv_forecast": 0.0,
+        "pv_real": 0.0,
+        "load_forecast": 1160.0,
+        "load_real": 780.0
+      },
+      {
+        "time": "01:00",
+        "pv_forecast": 0.0,
+        "pv_real": 0.0,
+        "load_forecast": 1160.0,
+        "load_real": 750.0
+      },
+      {
+        "time": "01:15",
+        "pv_forecast": 0.0,
+        "pv_real": 0.0,
+        "load_forecast": 1160.0,
+        "load_real": 880.0
+      },
+      {
+        "time": "01:30",
+        "pv_forecast": 0.0,
+        "pv_real": 0.0,
+        "load_forecast": 1160.0,
+        "load_real": 920.0
+      },
+      {
+        "time": "01:45",
+        "pv_forecast": 0.0,
+        "pv_real": 0.0,
+        "load_forecast": 1160.0,
+        "load_real": 850.0
+      },
+      {
+        "time": "02:00",
+        "pv_forecast": 0.0,
+        "pv_real": 0.0,
+        "load_forecast": 1160.0,
+        "load_real": 800.0
+      },
+      {
+        "time": "02:15",
+        "pv_forecast": 0.0,
+        "pv_real": 0.0,
+        "load_forecast": 1160.0,
+        "load_real": 850.0
+      },
+      {
+        "time": "02:30",
+        "pv_forecast": 0.0,
+        "pv_real": 0.0,
+        "load_forecast": 1160.0,
+        "load_real": 820.0
+      },
+      {
+        "time": "02:45",
+        "pv_forecast": 0.0,
+        "pv_real": 0.0,
+        "load_forecast": 1160.0,
+        "load_real": 750.0
+      },
+      {
+        "time": "03:00",
+        "pv_forecast": 0.0,
+        "pv_real": 0.0,
+        "load_forecast": 1160.0,
+        "load_real": 780.0
+      },
+      {
+        "time": "03:15",
+        "pv_forecast": 0.0,
+        "pv_real": 0.0,
+        "load_forecast": 1160.0,
+        "load_real": 1250.0
+      },
+      {
+        "time": "03:30",
+        "pv_forecast": 0.0,
+        "pv_real": 0.0,
+        "load_forecast": 1160.0,
+        "load_real": 800.0
+      },
+      {
+        "time": "03:45",
+        "pv_forecast": 0.0,
+        "pv_real": 0.0,
+        "load_forecast": 1160.0,
+        "load_real": 750.0
+      },
+      {
+        "time": "04:00",
+        "pv_forecast": 0.0,
+        "pv_real": 0.0,
+        "load_forecast": 1160.0,
+        "load_real": 1200.0
+      },
+      {
+        "time": "04:15",
+        "pv_forecast": 0.0,
+        "pv_real": 0.0,
+        "load_forecast": 1160.0,
+        "load_real": 1250.0
+      },
+      {
+        "time": "04:30",
+        "pv_forecast": 0.0,
+        "pv_real": 0.0,
+        "load_forecast": 1160.0,
+        "load_real": 1350.0
+      },
+      {
+        "time": "04:45",
+        "pv_forecast": 0.0,
+        "pv_real": 0.0,
+        "load_forecast": 1160.0,
+        "load_real": 1250.0
+      },
+      {
+        "time": "05:00",
+        "pv_forecast": 100.0,
+        "pv_real": 50.0,
+        "load_forecast": 1160.0,
+        "load_real": 900.0
+      },
+      {
+        "time": "05:15",
+        "pv_forecast": 200.0,
+        "pv_real": 100.0,
+        "load_forecast": 1160.0,
+        "load_real": 800.0
+      },
+      {
+        "time": "05:30",
+        "pv_forecast": 350.0,
+        "pv_real": 200.0,
+        "load_forecast": 1160.0,
+        "load_real": 850.0
+      },
+      {
+        "time": "05:45",
+        "pv_forecast": 500.0,
+        "pv_real": 300.0,
+        "load_forecast": 1160.0,
+        "load_real": 700.0
+      },
+      {
+        "time": "06:00",
+        "pv_forecast": 700.0,
+        "pv_real": 500.0,
+        "load_forecast": 1160.0,
+        "load_real": 1000.0
+      },
+      {
+        "time": "06:15",
+        "pv_forecast": 1000.0,
+        "pv_real": 900.0,
+        "load_forecast": 1160.0,
+        "load_real": 1050.0
+      },
+      {
+        "time": "06:30",
+        "pv_forecast": 1400.0,
+        "pv_real": 1300.0,
+        "load_forecast": 1160.0,
+        "load_real": 950.0
+      },
+      {
+        "time": "06:45",
+        "pv_forecast": 1700.0,
+        "pv_real": 1500.0,
+        "load_forecast": 1160.0,
+        "load_real": 1050.0
+      },
+      {
+        "time": "07:00",
+        "pv_forecast": 2000.0,
+        "pv_real": 1800.0,
+        "load_forecast": 1160.0,
+        "load_real": 1200.0
+      },
+      {
+        "time": "07:15",
+        "pv_forecast": 2400.0,
+        "pv_real": 2000.0,
+        "load_forecast": 1160.0,
+        "load_real": 1400.0
+      },
+      {
+        "time": "07:30",
+        "pv_forecast": 2900.0,
+        "pv_real": 2200.0,
+        "load_forecast": 1160.0,
+        "load_real": 1200.0
+      },
+      {
+        "time": "07:45",
+        "pv_forecast": 3300.0,
+        "pv_real": 2800.0,
+        "load_forecast": 1160.0,
+        "load_real": 1250.0
+      },
+      {
+        "time": "08:00",
+        "pv_forecast": 3700.0,
+        "pv_real": 3000.0,
+        "load_forecast": 1160.0,
+        "load_real": 1500.0
+      },
+      {
+        "time": "08:15",
+        "pv_forecast": 4100.0,
+        "pv_real": 3400.0,
+        "load_forecast": 1160.0,
+        "load_real": 1600.0
+      },
+      {
+        "time": "08:30",
+        "pv_forecast": 4400.0,
+        "pv_real": 3800.0,
+        "load_forecast": 1160.0,
+        "load_real": 1550.0
+      },
+      {
+        "time": "08:45",
+        "pv_forecast": 4800.0,
+        "pv_real": 4200.0,
+        "load_forecast": 1160.0,
+        "load_real": 1650.0
+      },
+      {
+        "time": "09:00",
+        "pv_forecast": 5200.0,
+        "pv_real": 4500.0,
+        "load_forecast": 1160.0,
+        "load_real": 2000.0
+      },
+      {
+        "time": "09:15",
+        "pv_forecast": 5600.0,
+        "pv_real": 5000.0,
+        "load_forecast": 1160.0,
+        "load_real": 2100.0
+      },
+      {
+        "time": "09:30",
+        "pv_forecast": 5900.0,
+        "pv_real": 5200.0,
+        "load_forecast": 1160.0,
+        "load_real": 2350.0
+      },
+      {
+        "time": "09:45",
+        "pv_forecast": 6200.0,
+        "pv_real": 5600.0,
+        "load_forecast": 1160.0,
+        "load_real": 2350.0
+      },
+      {
+        "time": "10:00",
+        "pv_forecast": 6500.0,
+        "pv_real": 4000.0,
+        "load_forecast": 1160.0,
+        "load_real": 2450.0
+      },
+      {
+        "time": "10:15",
+        "pv_forecast": 6800.0,
+        "pv_real": 7200.0,
+        "load_forecast": 1160.0,
+        "load_real": 1700.0
+      },
+      {
+        "time": "10:30",
+        "pv_forecast": 7000.0,
+        "pv_real": 2200.0,
+        "load_forecast": 1160.0,
+        "load_real": 2500.0
+      },
+      {
+        "time": "10:45",
+        "pv_forecast": 7200.0,
+        "pv_real": 7800.0,
+        "load_forecast": 1160.0,
+        "load_real": 1900.0
+      },
+      {
+        "time": "11:00",
+        "pv_forecast": 7300.0,
+        "pv_real": 2500.0,
+        "load_forecast": 1160.0,
+        "load_real": 2100.0
+      },
+      {
+        "time": "11:15",
+        "pv_forecast": 7400.0,
+        "pv_real": 8200.0,
+        "load_forecast": 1160.0,
+        "load_real": 1250.0
+      },
+      {
+        "time": "11:30",
+        "pv_forecast": 7500.0,
+        "pv_real": 7500.0,
+        "load_forecast": 1160.0,
+        "load_real": 2200.0
+      },
+      {
+        "time": "11:45",
+        "pv_forecast": 7550.0,
+        "pv_real": 2000.0,
+        "load_forecast": 1160.0,
+        "load_real": 2250.0
+      },
+      {
+        "time": "12:00",
+        "pv_forecast": 7500.0,
+        "pv_real": 8500.0,
+        "load_forecast": 1160.0,
+        "load_real": 2350.0
+      },
+      {
+        "time": "12:15",
+        "pv_forecast": 7500.0,
+        "pv_real": 3000.0,
+        "load_forecast": 1160.0,
+        "load_real": 1200.0
+      },
+      {
+        "time": "12:30",
+        "pv_forecast": 7450.0,
+        "pv_real": 8800.0,
+        "load_forecast": 1160.0,
+        "load_real": 3600.0
+      },
+      {
+        "time": "12:45",
+        "pv_forecast": 7350.0,
+        "pv_real": 6000.0,
+        "load_forecast": 1160.0,
+        "load_real": -1100.0
+      },
+      {
+        "time": "13:00",
+        "pv_forecast": 7250.0,
+        "pv_real": 9000.0,
+        "load_forecast": 1160.0,
+        "load_real": 2000.0
+      },
+      {
+        "time": "13:15",
+        "pv_forecast": 7200.0,
+        "pv_real": 3000.0,
+        "load_forecast": 1160.0,
+        "load_real": 0.0
+      },
+      {
+        "time": "13:30",
+        "pv_forecast": 7250.0,
+        "pv_real": 8100.0,
+        "load_forecast": 1160.0,
+        "load_real": 0.0
+      },
+      {
+        "time": "13:45",
+        "pv_forecast": 7300.0,
+        "pv_real": 2800.0,
+        "load_forecast": 1160.0,
+        "load_real": 1900.0
+      },
+      {
+        "time": "14:00",
+        "pv_forecast": 7400.0,
+        "pv_real": 7500.0,
+        "load_forecast": 1160.0,
+        "load_real": 2000.0
+      },
+      {
+        "time": "14:15",
+        "pv_forecast": 7600.0,
+        "pv_real": 2500.0,
+        "load_forecast": 1160.0,
+        "load_real": 2400.0
+      },
+      {
+        "time": "14:30",
+        "pv_forecast": 7800.0,
+        "pv_real": 7800.0,
+        "load_forecast": 1160.0,
+        "load_real": 100.0
+      },
+      {
+        "time": "14:45",
+        "pv_forecast": 8000.0,
+        "pv_real": 6500.0,
+        "load_forecast": 1160.0,
+        "load_real": 1600.0
+      },
+      {
+        "time": "15:00",
+        "pv_forecast": 8100.0,
+        "pv_real": 2500.0,
+        "load_forecast": 1160.0,
+        "load_real": 100.0
+      },
+      {
+        "time": "15:15",
+        "pv_forecast": 8200.0,
+        "pv_real": 6800.0,
+        "load_forecast": 1160.0,
+        "load_real": 500.0
+      },
+      {
+        "time": "15:30",
+        "pv_forecast": 8100.0,
+        "pv_real": 2000.0,
+        "load_forecast": 1160.0,
+        "load_real": 200.0
+      },
+      {
+        "time": "15:45",
+        "pv_forecast": 7900.0,
+        "pv_real": 6500.0,
+        "load_forecast": 1160.0,
+        "load_real": 500.0
+      },
+      {
+        "time": "16:00",
+        "pv_forecast": 7700.0,
+        "pv_real": 5500.0,
+        "load_forecast": 1160.0,
+        "load_real": 200.0
+      },
+      {
+        "time": "16:15",
+        "pv_forecast": 7600.0,
+        "pv_real": 0.0,
+        "load_forecast": 1160.0,
+        "load_real": -2200.0
+      },
+      {
+        "time": "16:30",
+        "pv_forecast": 7600.0,
+        "pv_real": 5500.0,
+        "load_forecast": 1160.0,
+        "load_real": 5500.0
+      },
+      {
+        "time": "16:45",
+        "pv_forecast": 7600.0,
+        "pv_real": 4000.0,
+        "load_forecast": 1160.0,
+        "load_real": 4500.0
+      },
+      {
+        "time": "17:00",
+        "pv_forecast": 7600.0,
+        "pv_real": 4200.0,
+        "load_forecast": 1160.0,
+        "load_real": 3500.0
+      },
+      {
+        "time": "17:15",
+        "pv_forecast": 7300.0,
+        "pv_real": 4000.0,
+        "load_forecast": 1160.0,
+        "load_real": 1500.0
+      },
+      {
+        "time": "17:30",
+        "pv_forecast": 7000.0,
+        "pv_real": 4200.0,
+        "load_forecast": 1160.0,
+        "load_real": 1400.0
+      },
+      {
+        "time": "17:45",
+        "pv_forecast": 6600.0,
+        "pv_real": 1000.0,
+        "load_forecast": 1160.0,
+        "load_real": 1200.0
+      },
+      {
+        "time": "18:00",
+        "pv_forecast": 6200.0,
+        "pv_real": 2500.0,
+        "load_forecast": 1160.0,
+        "load_real": 1400.0
+      },
+      {
+        "time": "18:15",
+        "pv_forecast": 5800.0,
+        "pv_real": 2000.0,
+        "load_forecast": 1160.0,
+        "load_real": 1400.0
+      },
+      {
+        "time": "18:30",
+        "pv_forecast": 5400.0,
+        "pv_real": 2000.0,
+        "load_forecast": 1160.0,
+        "load_real": 1500.0
+      },
+      {
+        "time": "18:45",
+        "pv_forecast": 5000.0,
+        "pv_real": 1000.0,
+        "load_forecast": 1160.0,
+        "load_real": 2800.0
+      },
+      {
+        "time": "19:00",
+        "pv_forecast": 4500.0,
+        "pv_real": 1500.0,
+        "load_forecast": 1160.0,
+        "load_real": 3000.0
+      },
+      {
+        "time": "19:15",
+        "pv_forecast": 4000.0,
+        "pv_real": 1000.0,
+        "load_forecast": 1160.0,
+        "load_real": 3200.0
+      },
+      {
+        "time": "19:30",
+        "pv_forecast": 3500.0,
+        "pv_real": 900.0,
+        "load_forecast": 1160.0,
+        "load_real": 2800.0
+      },
+      {
+        "time": "19:45",
+        "pv_forecast": 3000.0,
+        "pv_real": 600.0,
+        "load_forecast": 1160.0,
+        "load_real": 1500.0
+      },
+      {
+        "time": "20:00",
+        "pv_forecast": 2500.0,
+        "pv_real": 500.0,
+        "load_forecast": 1160.0,
+        "load_real": 1600.0
+      },
+      {
+        "time": "20:15",
+        "pv_forecast": 2000.0,
+        "pv_real": 400.0,
+        "load_forecast": 1160.0,
+        "load_real": 1650.0
+      },
+      {
+        "time": "20:30",
+        "pv_forecast": 1600.0,
+        "pv_real": 300.0,
+        "load_forecast": 1160.0,
+        "load_real": 1500.0
+      },
+      {
+        "time": "20:45",
+        "pv_forecast": 1300.0,
+        "pv_real": 200.0,
+        "load_forecast": 1160.0,
+        "load_real": 1200.0
+      },
+      {
+        "time": "21:00",
+        "pv_forecast": 1000.0,
+        "pv_real": 150.0,
+        "load_forecast": 1160.0,
+        "load_real": 1250.0
+      },
+      {
+        "time": "21:15",
+        "pv_forecast": 800.0,
+        "pv_real": 100.0,
+        "load_forecast": 1160.0,
+        "load_real": 1250.0
+      },
+      {
+        "time": "21:30",
+        "pv_forecast": 600.0,
+        "pv_real": 50.0,
+        "load_forecast": 1160.0,
+        "load_real": 1300.0
+      },
+      {
+        "time": "21:45",
+        "pv_forecast": 400.0,
+        "pv_real": 0.0,
+        "load_forecast": 1160.0,
+        "load_real": 1200.0
+      },
+      {
+        "time": "22:00",
+        "pv_forecast": 200.0,
+        "pv_real": 0.0,
+        "load_forecast": 1160.0,
+        "load_real": 1200.0
+      },
+      {
+        "time": "22:15",
+        "pv_forecast": 100.0,
+        "pv_real": 0.0,
+        "load_forecast": 1160.0,
+        "load_real": 1400.0
+      },
+      {
+        "time": "22:30",
+        "pv_forecast": 50.0,
+        "pv_real": 0.0,
+        "load_forecast": 1160.0,
+        "load_real": 1400.0
+      },
+      {
+        "time": "22:45",
+        "pv_forecast": 0.0,
+        "pv_real": 0.0,
+        "load_forecast": 1160.0,
+        "load_real": 1000.0
+      },
+      {
+        "time": "23:00",
+        "pv_forecast": 0.0,
+        "pv_real": 0.0,
+        "load_forecast": 1160.0,
+        "load_real": 1100.0
+      },
+      {
+        "time": "23:15",
+        "pv_forecast": 0.0,
+        "pv_real": 0.0,
+        "load_forecast": 1160.0,
+        "load_real": 1000.0
+      },
+      {
+        "time": "23:30",
+        "pv_forecast": 0.0,
+        "pv_real": 0.0,
+        "load_forecast": 1160.0,
+        "load_real": 1100.0
+      },
+      {
+        "time": "23:45",
+        "pv_forecast": 0.0,
+        "pv_real": 0.0,
+        "load_forecast": 1160.0,
+        "load_real": 1100.0
+      }
+    ],
+    "price": [
+      {
+        "time": "00:00",
+        "price_buy": 0.482,
+        "price_sell": 0.385
+      },
+      {
+        "time": "00:15",
+        "price_buy": 0.482,
+        "price_sell": 0.385
+      },
+      {
+        "time": "00:30",
+        "price_buy": 0.482,
+        "price_sell": 0.385
+      },
+      {
+        "time": "00:45",
+        "price_buy": 0.482,
+        "price_sell": 0.385
+      },
+      {
+        "time": "01:00",
+        "price_buy": 0.461,
+        "price_sell": 0.368
+      },
+      {
+        "time": "01:15",
+        "price_buy": 0.461,
+        "price_sell": 0.368
+      },
+      {
+        "time": "01:30",
+        "price_buy": 0.461,
+        "price_sell": 0.368
+      },
+      {
+        "time": "01:45",
+        "price_buy": 0.461,
+        "price_sell": 0.368
+      },
+      {
+        "time": "02:00",
+        "price_buy": 0.442,
+        "price_sell": 0.352
+      },
+      {
+        "time": "02:15",
+        "price_buy": 0.442,
+        "price_sell": 0.352
+      },
+      {
+        "time": "02:30",
+        "price_buy": 0.442,
+        "price_sell": 0.352
+      },
+      {
+        "time": "02:45",
+        "price_buy": 0.442,
+        "price_sell": 0.352
+      },
+      {
+        "time": "03:00",
+        "price_buy": 0.134,
+        "price_sell": 0.106
+      },
+      {
+        "time": "03:15",
+        "price_buy": 0.134,
+        "price_sell": 0.106
+      },
+      {
+        "time": "03:30",
+        "price_buy": 0.134,
+        "price_sell": 0.106
+      },
+      {
+        "time": "03:45",
+        "price_buy": 0.134,
+        "price_sell": 0.106
+      },
+      {
+        "time": "04:00",
+        "price_buy": 0.03,
+        "price_sell": 0.024
+      },
+      {
+        "time": "04:15",
+        "price_buy": 0.03,
+        "price_sell": 0.024
+      },
+      {
+        "time": "04:30",
+        "price_buy": 0.03,
+        "price_sell": 0.024
+      },
+      {
+        "time": "04:45",
+        "price_buy": 0.03,
+        "price_sell": 0.024
+      },
+      {
+        "time": "05:00",
+        "price_buy": 0.192,
+        "price_sell": 0.152
+      },
+      {
+        "time": "05:15",
+        "price_buy": 0.192,
+        "price_sell": 0.152
+      },
+      {
+        "time": "05:30",
+        "price_buy": 0.192,
+        "price_sell": 0.152
+      },
+      {
+        "time": "05:45",
+        "price_buy": 0.192,
+        "price_sell": 0.152
+      },
+      {
+        "time": "06:00",
+        "price_buy": 0.438,
+        "price_sell": 0.348
+      },
+      {
+        "time": "06:15",
+        "price_buy": 0.438,
+        "price_sell": 0.348
+      },
+      {
+        "time": "06:30",
+        "price_buy": 0.438,
+        "price_sell": 0.348
+      },
+      {
+        "time": "06:45",
+        "price_buy": 0.438,
+        "price_sell": 0.348
+      },
+      {
+        "time": "07:00",
+        "price_buy": 0.435,
+        "price_sell": 0.348
+      },
+      {
+        "time": "07:15",
+        "price_buy": 0.435,
+        "price_sell": 0.348
+      },
+      {
+        "time": "07:30",
+        "price_buy": 0.435,
+        "price_sell": 0.348
+      },
+      {
+        "time": "07:45",
+        "price_buy": 0.435,
+        "price_sell": 0.348
+      },
+      {
+        "time": "08:00",
+        "price_buy": 0.312,
+        "price_sell": 0.248
+      },
+      {
+        "time": "08:15",
+        "price_buy": 0.312,
+        "price_sell": 0.248
+      },
+      {
+        "time": "08:30",
+        "price_buy": 0.312,
+        "price_sell": 0.248
+      },
+      {
+        "time": "08:45",
+        "price_buy": 0.312,
+        "price_sell": 0.248
+      },
+      {
+        "time": "09:00",
+        "price_buy": 0.036,
+        "price_sell": 0.028
+      },
+      {
+        "time": "09:15",
+        "price_buy": 0.036,
+        "price_sell": 0.028
+      },
+      {
+        "time": "09:30",
+        "price_buy": 0.036,
+        "price_sell": 0.028
+      },
+      {
+        "time": "09:45",
+        "price_buy": 0.036,
+        "price_sell": 0.028
+      },
+      {
+        "time": "10:00",
+        "price_buy": 0.0,
+        "price_sell": 0.0
+      },
+      {
+        "time": "10:15",
+        "price_buy": 0.0,
+        "price_sell": 0.0
+      },
+      {
+        "time": "10:30",
+        "price_buy": 0.0,
+        "price_sell": 0.0
+      },
+      {
+        "time": "10:45",
+        "price_buy": 0.0,
+        "price_sell": 0.0
+      },
+      {
+        "time": "11:00",
+        "price_buy": -0.01,
+        "price_sell": -0.015
+      },
+      {
+        "time": "11:15",
+        "price_buy": -0.01,
+        "price_sell": -0.015
+      },
+      {
+        "time": "11:30",
+        "price_buy": -0.01,
+        "price_sell": -0.015
+      },
+      {
+        "time": "11:45",
+        "price_buy": -0.01,
+        "price_sell": -0.015
+      },
+      {
+        "time": "12:00",
+        "price_buy": -0.028,
+        "price_sell": -0.035
+      },
+      {
+        "time": "12:15",
+        "price_buy": -0.028,
+        "price_sell": -0.035
+      },
+      {
+        "time": "12:30",
+        "price_buy": -0.028,
+        "price_sell": -0.035
+      },
+      {
+        "time": "12:45",
+        "price_buy": -0.028,
+        "price_sell": -0.035
+      },
+      {
+        "time": "13:00",
+        "price_buy": -0.035,
+        "price_sell": -0.042
+      },
+      {
+        "time": "13:15",
+        "price_buy": -0.035,
+        "price_sell": -0.042
+      },
+      {
+        "time": "13:30",
+        "price_buy": -0.035,
+        "price_sell": -0.042
+      },
+      {
+        "time": "13:45",
+        "price_buy": -0.035,
+        "price_sell": -0.042
+      },
+      {
+        "time": "14:00",
+        "price_buy": -0.04,
+        "price_sell": -0.048
+      },
+      {
+        "time": "14:15",
+        "price_buy": -0.04,
+        "price_sell": -0.048
+      },
+      {
+        "time": "14:30",
+        "price_buy": -0.04,
+        "price_sell": -0.048
+      },
+      {
+        "time": "14:45",
+        "price_buy": -0.04,
+        "price_sell": -0.048
+      },
+      {
+        "time": "15:00",
+        "price_buy": -0.04,
+        "price_sell": -0.048
+      },
+      {
+        "time": "15:15",
+        "price_buy": -0.04,
+        "price_sell": -0.048
+      },
+      {
+        "time": "15:30",
+        "price_buy": -0.04,
+        "price_sell": -0.048
+      },
+      {
+        "time": "15:45",
+        "price_buy": -0.04,
+        "price_sell": -0.048
+      },
+      {
+        "time": "16:00",
+        "price_buy": -0.022,
+        "price_sell": -0.03
+      },
+      {
+        "time": "16:15",
+        "price_buy": -0.022,
+        "price_sell": -0.03
+      },
+      {
+        "time": "16:30",
+        "price_buy": -0.022,
+        "price_sell": -0.03
+      },
+      {
+        "time": "16:45",
+        "price_buy": -0.022,
+        "price_sell": -0.03
+      },
+      {
+        "time": "17:00",
+        "price_buy": 0.005,
+        "price_sell": 0.005
+      },
+      {
+        "time": "17:15",
+        "price_buy": 0.005,
+        "price_sell": 0.005
+      },
+      {
+        "time": "17:30",
+        "price_buy": 0.005,
+        "price_sell": 0.005
+      },
+      {
+        "time": "17:45",
+        "price_buy": 0.005,
+        "price_sell": 0.005
+      },
+      {
+        "time": "18:00",
+        "price_buy": 0.402,
+        "price_sell": 0.322
+      },
+      {
+        "time": "18:15",
+        "price_buy": 0.402,
+        "price_sell": 0.322
+      },
+      {
+        "time": "18:30",
+        "price_buy": 0.402,
+        "price_sell": 0.322
+      },
+      {
+        "time": "18:45",
+        "price_buy": 0.402,
+        "price_sell": 0.322
+      },
+      {
+        "time": "19:00",
+        "price_buy": 0.47,
+        "price_sell": 0.378
+      },
+      {
+        "time": "19:15",
+        "price_buy": 0.47,
+        "price_sell": 0.378
+      },
+      {
+        "time": "19:30",
+        "price_buy": 0.47,
+        "price_sell": 0.378
+      },
+      {
+        "time": "19:45",
+        "price_buy": 0.47,
+        "price_sell": 0.378
+      },
+      {
+        "time": "20:00",
+        "price_buy": 0.55,
+        "price_sell": 0.44
+      },
+      {
+        "time": "20:15",
+        "price_buy": 0.55,
+        "price_sell": 0.44
+      },
+      {
+        "time": "20:30",
+        "price_buy": 0.55,
+        "price_sell": 0.44
+      },
+      {
+        "time": "20:45",
+        "price_buy": 0.55,
+        "price_sell": 0.44
+      },
+      {
+        "time": "21:00",
+        "price_buy": 0.585,
+        "price_sell": 0.468
+      },
+      {
+        "time": "21:15",
+        "price_buy": 0.585,
+        "price_sell": 0.468
+      },
+      {
+        "time": "21:30",
+        "price_buy": 0.585,
+        "price_sell": 0.468
+      },
+      {
+        "time": "21:45",
+        "price_buy": 0.585,
+        "price_sell": 0.468
+      },
+      {
+        "time": "22:00",
+        "price_buy": 0.562,
+        "price_sell": 0.45
+      },
+      {
+        "time": "22:15",
+        "price_buy": 0.562,
+        "price_sell": 0.45
+      },
+      {
+        "time": "22:30",
+        "price_buy": 0.562,
+        "price_sell": 0.45
+      },
+      {
+        "time": "22:45",
+        "price_buy": 0.562,
+        "price_sell": 0.45
+      },
+      {
+        "time": "23:00",
+        "price_buy": 0.54,
+        "price_sell": 0.43
+      },
+      {
+        "time": "23:15",
+        "price_buy": 0.54,
+        "price_sell": 0.43
+      },
+      {
+        "time": "23:30",
+        "price_buy": 0.54,
+        "price_sell": 0.43
+      },
+      {
+        "time": "23:45",
+        "price_buy": 0.54,
+        "price_sell": 0.43
+      }
+    ],
+    "ai_mode": [
+      {
+        "time": "00:00",
+        "soc": 0.8,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 850.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "00:15",
+        "soc": 0.79,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 830.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "00:30",
+        "soc": 0.78,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 800.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "00:45",
+        "soc": 0.77,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 800.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "01:00",
+        "soc": 0.76,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 780.0,
+        "battery_to_grid": 20.0
+      },
+      {
+        "time": "01:15",
+        "soc": 0.75,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 800.0,
+        "battery_to_grid": 50.0
+      },
+      {
+        "time": "01:30",
+        "soc": 0.74,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 820.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "01:45",
+        "soc": 0.73,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 800.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "02:00",
+        "soc": 0.72,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 790.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "02:15",
+        "soc": 0.71,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 780.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "02:30",
+        "soc": 0.7,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 770.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "02:45",
+        "soc": 0.69,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 780.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "03:00",
+        "soc": 0.68,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 800.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "03:15",
+        "soc": 0.67,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 820.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "03:30",
+        "soc": 0.66,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1100.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "03:45",
+        "soc": 0.65,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 850.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "04:00",
+        "soc": 0.64,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 800.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "04:15",
+        "soc": 0.63,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1150.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "04:30",
+        "soc": 0.62,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1200.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "04:45",
+        "soc": 0.61,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1150.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "05:00",
+        "soc": 0.6,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1100.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "05:15",
+        "soc": 0.59,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1250.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "05:30",
+        "soc": 0.58,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 800.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "05:45",
+        "soc": 0.57,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 750.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "06:00",
+        "soc": 0.56,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 800.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "06:15",
+        "soc": 0.55,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 950.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "06:30",
+        "soc": 0.54,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 980.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "06:45",
+        "soc": 0.53,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1000.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "07:00",
+        "soc": 0.51,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 950.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "07:15",
+        "soc": 0.5,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1050.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "07:30",
+        "soc": 0.49,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1100.0,
+        "battery_to_grid": 200.0
+      },
+      {
+        "time": "07:45",
+        "soc": 0.47,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1200.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "08:00",
+        "soc": 0.46,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1250.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "08:15",
+        "soc": 0.44,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1300.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "08:30",
+        "soc": 0.42,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1400.0,
+        "battery_to_grid": 100.0
+      },
+      {
+        "time": "08:45",
+        "soc": 0.4,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1500.0,
+        "battery_to_grid": 150.0
+      },
+      {
+        "time": "09:00",
+        "soc": 0.38,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1600.0,
+        "battery_to_grid": 300.0
+      },
+      {
+        "time": "09:15",
+        "soc": 0.36,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1700.0,
+        "battery_to_grid": 400.0
+      },
+      {
+        "time": "09:30",
+        "soc": 0.34,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1800.0,
+        "battery_to_grid": 500.0
+      },
+      {
+        "time": "09:45",
+        "soc": 0.32,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1600.0,
+        "battery_to_grid": 600.0
+      },
+      {
+        "time": "10:00",
+        "soc": 0.3,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1700.0,
+        "battery_to_grid": 550.0
+      },
+      {
+        "time": "10:15",
+        "soc": 0.28,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1650.0,
+        "battery_to_grid": 400.0
+      },
+      {
+        "time": "10:30",
+        "soc": 0.26,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1700.0,
+        "battery_to_grid": 600.0
+      },
+      {
+        "time": "10:45",
+        "soc": 0.24,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1600.0,
+        "battery_to_grid": 450.0
+      },
+      {
+        "time": "11:00",
+        "soc": 0.22,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1650.0,
+        "battery_to_grid": 500.0
+      },
+      {
+        "time": "11:15",
+        "soc": 0.2,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1700.0,
+        "battery_to_grid": 600.0
+      },
+      {
+        "time": "11:30",
+        "soc": 0.18,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1600.0,
+        "battery_to_grid": 300.0
+      },
+      {
+        "time": "11:45",
+        "soc": 0.16,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1500.0,
+        "battery_to_grid": 600.0
+      },
+      {
+        "time": "12:00",
+        "soc": 0.14,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 500.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "12:15",
+        "soc": 0.12,
+        "battery_from_pv": -2100.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "12:30",
+        "soc": 0.11,
+        "battery_from_pv": -500.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "12:45",
+        "soc": 0.1,
+        "battery_from_pv": -1500.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "13:00",
+        "soc": 0.09,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "13:15",
+        "soc": 0.08,
+        "battery_from_pv": -3000.0,
+        "battery_from_grid": -7000.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "13:30",
+        "soc": 0.1,
+        "battery_from_pv": -500.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "13:45",
+        "soc": 0.12,
+        "battery_from_pv": -1000.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "14:00",
+        "soc": 0.14,
+        "battery_from_pv": -1000.0,
+        "battery_from_grid": -1000.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "14:15",
+        "soc": 0.2,
+        "battery_from_pv": -2500.0,
+        "battery_from_grid": -7500.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "14:30",
+        "soc": 0.3,
+        "battery_from_pv": -4000.0,
+        "battery_from_grid": -6000.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "14:45",
+        "soc": 0.45,
+        "battery_from_pv": -6500.0,
+        "battery_from_grid": -3500.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "15:00",
+        "soc": 0.6,
+        "battery_from_pv": -5000.0,
+        "battery_from_grid": -5000.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "15:15",
+        "soc": 0.75,
+        "battery_from_pv": -6000.0,
+        "battery_from_grid": -4000.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "15:30",
+        "soc": 0.88,
+        "battery_from_pv": -3500.0,
+        "battery_from_grid": -6500.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "15:45",
+        "soc": 0.95,
+        "battery_from_pv": -4000.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "16:00",
+        "soc": 0.98,
+        "battery_from_pv": -2000.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "16:15",
+        "soc": 1.0,
+        "battery_from_pv": -500.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "16:30",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "16:45",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "17:00",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "17:15",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "17:30",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 200.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "17:45",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 500.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "18:00",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "18:15",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "18:30",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "18:45",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "19:00",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1800.0,
+        "battery_to_grid": 200.0
+      },
+      {
+        "time": "19:15",
+        "soc": 0.99,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1700.0,
+        "battery_to_grid": 100.0
+      },
+      {
+        "time": "19:30",
+        "soc": 0.97,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1600.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "19:45",
+        "soc": 0.95,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1000.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "20:00",
+        "soc": 0.94,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 500.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "20:15",
+        "soc": 0.93,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 600.0,
+        "battery_to_grid": 100.0
+      },
+      {
+        "time": "20:30",
+        "soc": 0.91,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1100.0,
+        "battery_to_grid": 150.0
+      },
+      {
+        "time": "20:45",
+        "soc": 0.9,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1200.0,
+        "battery_to_grid": 50.0
+      },
+      {
+        "time": "21:00",
+        "soc": 0.88,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1150.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "21:15",
+        "soc": 0.87,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1200.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "21:30",
+        "soc": 0.85,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1250.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "21:45",
+        "soc": 0.84,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1250.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "22:00",
+        "soc": 0.82,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1300.0,
+        "battery_to_grid": 50.0
+      },
+      {
+        "time": "22:15",
+        "soc": 0.8,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1350.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "22:30",
+        "soc": 0.79,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1100.0,
+        "battery_to_grid": 100.0
+      },
+      {
+        "time": "22:45",
+        "soc": 0.77,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1150.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "23:00",
+        "soc": 0.75,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1200.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "23:15",
+        "soc": 0.74,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1200.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "23:30",
+        "soc": 0.72,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1180.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "23:45",
+        "soc": 0.71,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1250.0,
+        "battery_to_grid": 0.0
+      }
+    ],
+    "self_mode": [
+      {
+        "time": "00:00",
+        "soc": 0.78,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 800.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "00:15",
+        "soc": 0.77,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 820.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "00:30",
+        "soc": 0.77,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 850.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "00:45",
+        "soc": 0.76,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 880.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "01:00",
+        "soc": 0.76,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 900.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "01:15",
+        "soc": 0.75,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 880.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "01:30",
+        "soc": 0.75,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 850.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "01:45",
+        "soc": 0.74,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 820.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "02:00",
+        "soc": 0.74,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 800.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "02:15",
+        "soc": 0.73,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 780.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "02:30",
+        "soc": 0.73,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 780.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "02:45",
+        "soc": 0.72,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 800.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "03:00",
+        "soc": 0.72,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 850.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "03:15",
+        "soc": 0.71,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1000.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "03:30",
+        "soc": 0.7,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1200.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "03:45",
+        "soc": 0.7,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1250.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "04:00",
+        "soc": 0.69,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1200.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "04:15",
+        "soc": 0.68,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1250.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "04:30",
+        "soc": 0.67,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1350.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "04:45",
+        "soc": 0.66,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1300.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "05:00",
+        "soc": 0.65,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1100.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "05:15",
+        "soc": 0.63,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 800.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "05:30",
+        "soc": 0.61,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 400.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "05:45",
+        "soc": 0.59,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 100.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "06:00",
+        "soc": 0.56,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "06:15",
+        "soc": 0.57,
+        "battery_from_pv": 200.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "06:30",
+        "soc": 0.59,
+        "battery_from_pv": 500.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "06:45",
+        "soc": 0.62,
+        "battery_from_pv": 800.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "07:00",
+        "soc": 0.65,
+        "battery_from_pv": 1000.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "07:15",
+        "soc": 0.68,
+        "battery_from_pv": 1500.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "07:30",
+        "soc": 0.71,
+        "battery_from_pv": 2000.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "07:45",
+        "soc": 0.74,
+        "battery_from_pv": 2500.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "08:00",
+        "soc": 0.77,
+        "battery_from_pv": 2800.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "08:15",
+        "soc": 0.8,
+        "battery_from_pv": 3200.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "08:30",
+        "soc": 0.83,
+        "battery_from_pv": 3500.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "08:45",
+        "soc": 0.86,
+        "battery_from_pv": 3800.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "09:00",
+        "soc": 0.89,
+        "battery_from_pv": 4000.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "09:15",
+        "soc": 0.92,
+        "battery_from_pv": 4200.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "09:30",
+        "soc": 0.95,
+        "battery_from_pv": 4300.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "09:45",
+        "soc": 0.97,
+        "battery_from_pv": 4500.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "10:00",
+        "soc": 0.99,
+        "battery_from_pv": 4800.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "10:15",
+        "soc": 1.0,
+        "battery_from_pv": 2000.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "10:30",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "10:45",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "11:00",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "11:15",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "11:30",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "11:45",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "12:00",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "12:15",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "12:30",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "12:45",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "13:00",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "13:15",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "13:30",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "13:45",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "14:00",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "14:15",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "14:30",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "14:45",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "15:00",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "15:15",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "15:30",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "15:45",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "16:00",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "16:15",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "16:30",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "16:45",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "17:00",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "17:15",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "17:30",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "17:45",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "18:00",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "18:15",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "18:30",
+        "soc": 1.0,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 0.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "18:45",
+        "soc": 0.99,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1500.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "19:00",
+        "soc": 0.98,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 2200.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "19:15",
+        "soc": 0.97,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 600.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "19:30",
+        "soc": 0.96,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 800.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "19:45",
+        "soc": 0.95,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 900.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "20:00",
+        "soc": 0.94,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1000.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "20:15",
+        "soc": 0.93,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1100.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "20:30",
+        "soc": 0.92,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1200.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "20:45",
+        "soc": 0.91,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1200.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "21:00",
+        "soc": 0.9,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1200.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "21:15",
+        "soc": 0.89,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1250.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "21:30",
+        "soc": 0.88,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1300.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "21:45",
+        "soc": 0.87,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1300.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "22:00",
+        "soc": 0.86,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1350.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "22:15",
+        "soc": 0.85,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1350.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "22:30",
+        "soc": 0.84,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1300.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "22:45",
+        "soc": 0.82,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1200.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "23:00",
+        "soc": 0.81,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1100.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "23:15",
+        "soc": 0.79,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1100.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "23:30",
+        "soc": 0.78,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1100.0,
+        "battery_to_grid": 0.0
+      },
+      {
+        "time": "23:45",
+        "soc": 0.76,
+        "battery_from_pv": 0.0,
+        "battery_from_grid": 0.0,
+        "battery_to_load": 1100.0,
+        "battery_to_grid": 0.0
+      }
+    ],
+    "grid_power": [
+      {
+        "time": "00:00",
+        "ai_grid_power": 0.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "00:15",
+        "ai_grid_power": -100.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "00:30",
+        "ai_grid_power": -50.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "00:45",
+        "ai_grid_power": 0.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "01:00",
+        "ai_grid_power": 50.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "01:15",
+        "ai_grid_power": 100.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "01:30",
+        "ai_grid_power": -50.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "01:45",
+        "ai_grid_power": -50.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "02:00",
+        "ai_grid_power": 0.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "02:15",
+        "ai_grid_power": 0.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "02:30",
+        "ai_grid_power": 50.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "02:45",
+        "ai_grid_power": 100.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "03:00",
+        "ai_grid_power": 0.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "03:15",
+        "ai_grid_power": 300.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "03:30",
+        "ai_grid_power": 500.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "03:45",
+        "ai_grid_power": -100.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "04:00",
+        "ai_grid_power": 300.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "04:15",
+        "ai_grid_power": 100.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "04:30",
+        "ai_grid_power": 50.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "04:45",
+        "ai_grid_power": 0.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "05:00",
+        "ai_grid_power": -100.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "05:15",
+        "ai_grid_power": -300.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "05:30",
+        "ai_grid_power": -600.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "05:45",
+        "ai_grid_power": -900.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "06:00",
+        "ai_grid_power": -1200.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "06:15",
+        "ai_grid_power": -1600.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "06:30",
+        "ai_grid_power": -2000.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "06:45",
+        "ai_grid_power": -2400.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "07:00",
+        "ai_grid_power": -2800.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "07:15",
+        "ai_grid_power": -3100.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "07:30",
+        "ai_grid_power": -3500.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "07:45",
+        "ai_grid_power": -3900.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "08:00",
+        "ai_grid_power": -4300.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "08:15",
+        "ai_grid_power": -4700.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "08:30",
+        "ai_grid_power": -5000.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "08:45",
+        "ai_grid_power": -5300.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "09:00",
+        "ai_grid_power": -5500.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "09:15",
+        "ai_grid_power": -5700.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "09:30",
+        "ai_grid_power": -6000.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "09:45",
+        "ai_grid_power": -6200.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "10:00",
+        "ai_grid_power": -6500.0,
+        "self_grid_power": -1000.0
+      },
+      {
+        "time": "10:15",
+        "ai_grid_power": -7800.0,
+        "self_grid_power": -3000.0
+      },
+      {
+        "time": "10:30",
+        "ai_grid_power": -5000.0,
+        "self_grid_power": -2000.0
+      },
+      {
+        "time": "10:45",
+        "ai_grid_power": -8200.0,
+        "self_grid_power": -5000.0
+      },
+      {
+        "time": "11:00",
+        "ai_grid_power": -6000.0,
+        "self_grid_power": -3000.0
+      },
+      {
+        "time": "11:15",
+        "ai_grid_power": -8000.0,
+        "self_grid_power": -6000.0
+      },
+      {
+        "time": "11:30",
+        "ai_grid_power": -7000.0,
+        "self_grid_power": -4000.0
+      },
+      {
+        "time": "11:45",
+        "ai_grid_power": -7500.0,
+        "self_grid_power": -6500.0
+      },
+      {
+        "time": "12:00",
+        "ai_grid_power": -5000.0,
+        "self_grid_power": -4000.0
+      },
+      {
+        "time": "12:15",
+        "ai_grid_power": -2000.0,
+        "self_grid_power": -6000.0
+      },
+      {
+        "time": "12:30",
+        "ai_grid_power": 500.0,
+        "self_grid_power": -5000.0
+      },
+      {
+        "time": "12:45",
+        "ai_grid_power": 8200.0,
+        "self_grid_power": -2000.0
+      },
+      {
+        "time": "13:00",
+        "ai_grid_power": 2000.0,
+        "self_grid_power": -6000.0
+      },
+      {
+        "time": "13:15",
+        "ai_grid_power": 6000.0,
+        "self_grid_power": -6500.0
+      },
+      {
+        "time": "13:30",
+        "ai_grid_power": 2500.0,
+        "self_grid_power": -7000.0
+      },
+      {
+        "time": "13:45",
+        "ai_grid_power": 7500.0,
+        "self_grid_power": -6000.0
+      },
+      {
+        "time": "14:00",
+        "ai_grid_power": 3000.0,
+        "self_grid_power": -5500.0
+      },
+      {
+        "time": "14:15",
+        "ai_grid_power": 7200.0,
+        "self_grid_power": -4000.0
+      },
+      {
+        "time": "14:30",
+        "ai_grid_power": 3500.0,
+        "self_grid_power": -6000.0
+      },
+      {
+        "time": "14:45",
+        "ai_grid_power": 8000.0,
+        "self_grid_power": -2000.0
+      },
+      {
+        "time": "15:00",
+        "ai_grid_power": 6000.0,
+        "self_grid_power": -5000.0
+      },
+      {
+        "time": "15:15",
+        "ai_grid_power": 6500.0,
+        "self_grid_power": -4000.0
+      },
+      {
+        "time": "15:30",
+        "ai_grid_power": 7000.0,
+        "self_grid_power": -3000.0
+      },
+      {
+        "time": "15:45",
+        "ai_grid_power": 4000.0,
+        "self_grid_power": -2000.0
+      },
+      {
+        "time": "16:00",
+        "ai_grid_power": 500.0,
+        "self_grid_power": -4000.0
+      },
+      {
+        "time": "16:15",
+        "ai_grid_power": -500.0,
+        "self_grid_power": -2500.0
+      },
+      {
+        "time": "16:30",
+        "ai_grid_power": 200.0,
+        "self_grid_power": -3500.0
+      },
+      {
+        "time": "16:45",
+        "ai_grid_power": -200.0,
+        "self_grid_power": -2000.0
+      },
+      {
+        "time": "17:00",
+        "ai_grid_power": 0.0,
+        "self_grid_power": -2500.0
+      },
+      {
+        "time": "17:15",
+        "ai_grid_power": 0.0,
+        "self_grid_power": -2000.0
+      },
+      {
+        "time": "17:30",
+        "ai_grid_power": 200.0,
+        "self_grid_power": -1500.0
+      },
+      {
+        "time": "17:45",
+        "ai_grid_power": 800.0,
+        "self_grid_power": -500.0
+      },
+      {
+        "time": "18:00",
+        "ai_grid_power": 800.0,
+        "self_grid_power": -1000.0
+      },
+      {
+        "time": "18:15",
+        "ai_grid_power": 1200.0,
+        "self_grid_power": -500.0
+      },
+      {
+        "time": "18:30",
+        "ai_grid_power": 1600.0,
+        "self_grid_power": -200.0
+      },
+      {
+        "time": "18:45",
+        "ai_grid_power": 1000.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "19:00",
+        "ai_grid_power": -1800.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "19:15",
+        "ai_grid_power": -1000.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "19:30",
+        "ai_grid_power": -200.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "19:45",
+        "ai_grid_power": 300.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "20:00",
+        "ai_grid_power": 200.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "20:15",
+        "ai_grid_power": -500.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "20:30",
+        "ai_grid_power": -300.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "20:45",
+        "ai_grid_power": 100.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "21:00",
+        "ai_grid_power": 0.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "21:15",
+        "ai_grid_power": 100.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "21:30",
+        "ai_grid_power": -100.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "21:45",
+        "ai_grid_power": 0.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "22:00",
+        "ai_grid_power": 100.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "22:15",
+        "ai_grid_power": -100.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "22:30",
+        "ai_grid_power": 150.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "22:45",
+        "ai_grid_power": -50.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "23:00",
+        "ai_grid_power": 50.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "23:15",
+        "ai_grid_power": -50.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "23:30",
+        "ai_grid_power": 0.0,
+        "self_grid_power": 0.0
+      },
+      {
+        "time": "23:45",
+        "ai_grid_power": 0.0,
+        "self_grid_power": 0.0
+      }
+    ]
+  }
+}

@@ -28,6 +28,7 @@ class Drawer:
         df_price = Drawer._prepare_price(datasets.get('price', []), base_date)
         df_ai = Drawer._prepare_battery(datasets.get('ai_mode', []), base_date)
         df_self = Drawer._prepare_battery(datasets.get('self_mode', []), base_date)
+        df_grid = Drawer._prepare_grid(datasets.get('grid_power', []), base_date)
         
         # Align all dataframes to a common 1-min index for calculations
         common_index = pd.date_range(start=datetime.combine(base_date, datetime.min.time()), 
@@ -44,9 +45,10 @@ class Drawer:
         
         df_ai_r = reindex_df(df_ai)
         df_self_r = reindex_df(df_self)
+        df_grid_r = reindex_df(df_grid)
 
         # 2. Setup Plot Layout
-        # 5 Plots + 1 Table area (Removed Theoretical Mode)
+        # 5 Plots 
         fig = plt.figure(figsize=(18, 24))
         gs = fig.add_gridspec(6, 1, height_ratios=[3, 1.5, 3, 3, 3, 2])
         plt.subplots_adjust(hspace=0.35)
@@ -56,18 +58,14 @@ class Drawer:
         ax_ai = fig.add_subplot(gs[2], sharex=ax_pv)
         ax_self = fig.add_subplot(gs[3], sharex=ax_pv)
         ax_grid = fig.add_subplot(gs[4], sharex=ax_pv)
-        ax_table = fig.add_subplot(gs[5])
-        ax_table.axis('off')
 
         # 3. Draw Plots
         Drawer._plot_pv_load(ax_pv, df_pv_load)
         Drawer._plot_price(ax_price, df_price)
         Drawer._plot_battery(ax_ai, df_ai, "AI mode", ax_pv)
         Drawer._plot_battery(ax_self, df_self, "self-consumption mode", ax_pv)
-        Drawer._plot_grid_comparison(ax_grid, df_pv_load_r, df_ai_r, df_self_r)
+        Drawer._plot_grid_comparison(ax_grid, df_grid_r)
 
-        # 4. Draw Table
-        Drawer._draw_table(ax_table, df_pv_load_r, df_price_r, df_ai_r, df_self_r)
 
         # 5. Global Formatting
         fig.suptitle(f"ps_id:{data.get('ps_id','N/A')} ,date:{base_date_str}, AI mode running result...", fontsize=14, y=0.995)
@@ -151,23 +149,44 @@ class Drawer:
         return df.resample('1min').interpolate(method='linear')
 
     @staticmethod
+    def _prepare_grid(data, base_date):
+        if not data: return pd.DataFrame()
+        rows = []
+        for item in data:
+            dt = datetime.combine(base_date, datetime.strptime(item['time'], "%H:%M").time())
+            rows.append({
+                'Time': dt,
+                'AI_Grid_Power': item.get('ai_grid_power', 0),
+                'Self_Grid_Power': item.get('self_grid_power', 0)
+            })
+        df = pd.DataFrame(rows).set_index('Time')
+        return df.resample('1min').interpolate(method='linear')
+
+    @staticmethod
     def _plot_pv_load(ax, df):
         if df.empty: return
         
         # Colors
-        c_pv_f = '#90ee90'
-        c_pv_r = '#2ECC71' # Green fill
-        c_load_f = '#E74C3C' # Pink/Red line
-        c_load_r = '#F39C12' # Orange fill
+        c_pv_f = '#2ECC71' # Green line
+        c_pv_r_line = '#5DADE2' # Dim blue line
+        c_pv_r_fill = '#2ECC71' # Green fill
+        
+        c_load_f = '#FF69B4' # Pink line
+        c_load_r_line = '#E74C3C' # Red line
+        c_load_r_fill = '#F39C12' # Orange fill
 
         ax.plot(df.index, df['PV_Forecast'], color=c_pv_f, label='PV forecast power')
-        ax.fill_between(df.index, 0, df['PV_Real'], color=c_pv_r, alpha=0.4, label='PV real power')
+        
+        ax.fill_between(df.index, 0, df['PV_Real'], color=c_pv_r_fill, alpha=0.4, label='PV real power')
+        ax.plot(df.index, df['PV_Real'], color=c_pv_r_line, lw=1)
         
         ax.plot(df.index, df['Load_Forecast'], color=c_load_f, label='load forecast power')
-        ax.fill_between(df.index, 0, df['Load_Real'], color=c_load_r, alpha=0.4, label='load real power')
+        
+        ax.fill_between(df.index, 0, df['Load_Real'], color=c_load_r_fill, alpha=0.4, label='load real power')
+        ax.plot(df.index, df['Load_Real'], color=c_load_r_line, lw=1)
 
         ax.set_ylabel("Power(W)")
-        ax.set_ylim(-1000, 15000) # Fixed Range
+        # ax.set_ylim(-1000, 15000) # Fixed Range removed to adapt
         ax.grid(True, alpha=0.3)
         ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.1), ncol=4, frameon=False, fontsize=8)
 
@@ -175,9 +194,9 @@ class Drawer:
     def _plot_price(ax, df):
         if df.empty: return
         ax.step(df.index, df['Price_Buy'], where='post', color='#E67E22', label='buying price')
-        ax.step(df.index, df['Price_Sell'], where='post', color='#34495E', label='selling price')
+        ax.step(df.index, df['Price_Sell'], where='post', color='#5DADE2', label='selling price')
         ax.set_ylabel("electricity price")
-        ax.set_ylim(0, 1.0) # Fixed Range
+        # ax.set_ylim(0, 1.0) # Fixed Range removed to adapt
         ax.grid(True, alpha=0.3)
         ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.1), ncol=2, frameon=False, fontsize=8)
 
@@ -211,10 +230,10 @@ class Drawer:
         # SOC
         ax2.plot(df.index, df['SOC'], color=c_soc, lw=1, label=f'{mode_name} battery SOC')
         ax2.set_ylabel("SOC")
-        ax2.set_ylim(0, 1.1) # Fixed Range
+        ax2.set_ylim(0, 1.0) # Fixed Range 0-1
 
         ax.set_ylabel("Power(W)")
-        ax.set_ylim(-15000, 15000) # Fixed Range
+        # ax.set_ylim(-15000, 15000) # Fixed Range removed to adapt
         ax.grid(True, alpha=0.3)
         
         # Legend
@@ -230,90 +249,37 @@ class Drawer:
         ax.legend(ordered_handles, ordered_labels, loc='upper center', bbox_to_anchor=(0.5, -0.1), ncol=6, frameon=False, fontsize=8)
 
     @staticmethod
-    def _plot_grid_comparison(ax, df_pv_load, df_ai, df_self):
-        # Calculate Grid Power
-        # Grid = Load - PV - Battery
-        # Note: Battery Total > 0 is Discharge (helps load), < 0 is Charge (consumes grid/pv)
-        # Grid_Import = Load - PV - Battery_Discharge + Battery_Charge_from_Grid?
-        # Let's use the net formula: Grid_Net = Load - PV - Battery_Total
-        # If Grid_Net > 0: Import. If < 0: Export.
-        
-        if df_pv_load.empty: return
-
-        grid_ai = df_pv_load['Load_Real'] - df_pv_load['PV_Real'] - (df_ai['Total'] if not df_ai.empty else 0)
-        grid_self = df_pv_load['Load_Real'] - df_pv_load['PV_Real'] - (df_self['Total'] if not df_self.empty else 0)
+    def _plot_grid_comparison(ax, df_grid):
+        if df_grid.empty: return
 
         c_ai = '#E67E22' # Orange
         c_self = '#2ECC71' # Green
 
-        ax.fill_between(df_pv_load.index, 0, grid_ai, color=c_ai, alpha=0.5, label='AI mode - grid power')
-        ax.fill_between(df_pv_load.index, 0, grid_self, color=c_self, alpha=0.5, label='self-consumption - grid power')
+        # Plot AI Grid Power
+        # Positive (Buy) - Above axis
+        ax.fill_between(df_grid.index, 0, df_grid['AI_Grid_Power'].clip(lower=0), color=c_ai, alpha=0.5, label='AI mode - grid buy')
+        # Negative (Sell) - Below axis
+        ax.fill_between(df_grid.index, 0, df_grid['AI_Grid_Power'].clip(upper=0), color=c_ai, alpha=0.5, label='AI mode - grid sell')
+
+        # Plot Self Grid Power
+        # Positive (Buy) - Above axis
+        ax.fill_between(df_grid.index, 0, df_grid['Self_Grid_Power'].clip(lower=0), color=c_self, alpha=0.5, label='self-consumption - grid buy')
+        # Negative (Sell) - Below axis
+        ax.fill_between(df_grid.index, 0, df_grid['Self_Grid_Power'].clip(upper=0), color=c_self, alpha=0.5, label='self-consumption - grid sell')
         
+        ax.axhline(0, color='gray', linestyle='--', linewidth=1, alpha=0.5)
         ax.set_ylabel("Power(W)")
-        ax.set_ylim(-15000, 15000) # Fixed Range
         ax.grid(True, alpha=0.3)
-        ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.1), ncol=2, frameon=False, fontsize=8)
-
-    @staticmethod
-    def _draw_table(ax, df_pv_load, df_price, df_ai, df_self):
-        # Calculate Stats
-        # Interval in hours (1 min = 1/60 hours)
-        interval = 1/60.0
         
-        def calc_stats(df_bat, df_pl, df_pr):
-            if df_bat.empty or df_pl.empty: return ['-']*9
-            
-            pv_kwh = df_pl['PV_Real'].sum() * interval / 1000
-            load_kwh = df_pl['Load_Real'].sum() * interval / 1000
-            
-            # Charge: sum of negative parts
-            charge_kwh = abs(df_bat[df_bat['Total'] < 0]['Total'].sum()) * interval / 1000
-            discharge_kwh = df_bat[df_bat['Total'] > 0]['Total'].sum() * interval / 1000
-            
-            # Grid
-            grid_power = df_pl['Load_Real'] - df_pl['PV_Real'] - df_bat['Total']
-            fetch_kwh = grid_power[grid_power > 0].sum() * interval / 1000
-            feed_kwh = abs(grid_power[grid_power < 0].sum()) * interval / 1000
-            
-            # Bill
-            # Need to align price
-            # Assuming df_pr is aligned
-            if df_pr.empty:
-                bill = 0
-            else:
-                # Cost = Fetch * BuyPrice - Feed * SellPrice
-                # We need element-wise multiplication
-                cost_series = (grid_power[grid_power > 0] * df_pr['Price_Buy']) - (abs(grid_power[grid_power < 0]) * df_pr['Price_Sell'])
-                bill = cost_series.sum() * interval / 1000
-            
-            # Revenue (Savings vs Baseline?)
-            # Baseline: No Battery. Grid = Load - PV.
-            grid_base = df_pl['Load_Real'] - df_pl['PV_Real']
-            if not df_pr.empty:
-                cost_base = (grid_base[grid_base > 0] * df_pr['Price_Buy']) - (abs(grid_base[grid_base < 0]) * df_pr['Price_Sell'])
-                bill_base = cost_base.sum() * interval / 1000
-            else:
-                bill_base = 0
-                
-            revenue = bill_base - bill
-            rev_rate = (revenue / abs(bill_base) * 100) if bill_base != 0 else 0
-            
-            return [
-                f"{pv_kwh:.2f}", f"{load_kwh:.2f}", f"{charge_kwh:.2f}", f"{discharge_kwh:.2f}",
-                f"{feed_kwh:.2f}", f"{fetch_kwh:.2f}", f"{bill:.2f}", f"{revenue:.2f}", f"{rev_rate:.2f}"
-            ]
+        # Legend - simplify to just AI and Self colors
+        from matplotlib.patches import Patch
+        legend_elements = [
+            Patch(facecolor=c_ai, alpha=0.5, label='AI mode grid power'),
+            Patch(facecolor=c_self, alpha=0.5, label='Self-consumption grid power')
+        ]
+        ax.legend(handles=legend_elements, loc='upper center', bbox_to_anchor=(0.5, -0.1), ncol=2, frameon=False, fontsize=8)
 
-        stats_ai = calc_stats(df_ai, df_pv_load, df_price)
-        stats_self = calc_stats(df_self, df_pv_load, df_price)
 
-        col_labels = ['PV(kWh)', 'Load(kWh)', 'Charge(kWh)', 'Discharge(kWh)', 'Feed-in(kWh)', 'Fetch(kWh)', 'Bill', 'Revenue', 'Revenue Rate(%)']
-        row_labels = ['AI mode', 'Self-consumption mode']
-        cell_text = [stats_ai, stats_self]
-
-        table = ax.table(cellText=cell_text, colLabels=col_labels, rowLabels=row_labels, loc='center', cellLoc='center')
-        table.auto_set_font_size(False)
-        table.set_fontsize(9)
-        table.scale(1, 1.5)
 
 if __name__ == "__main__":
     

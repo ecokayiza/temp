@@ -67,61 +67,6 @@
                 "description":"电池状态从30%提升至55%，显示出积极的充电行为."
             }
         }
-    },
-    {
-        "time_period":"18:00 - 20:30",
-        "descriptions":{
-            "pv_load": {
-                "avg_pv":50,
-                "avg_load":200,
-                "trend":"deficit",
-                "description":"在此时间段内，光伏发电量较低，无法满足负载需求."
-            },
-            "price": {
-                "avg_value": 1.20,
-                "trend": "high",
-                "description":"当前电价处于全天最高水平（1.20元）."
-            }
-        },
-        "ai_mode":{
-            "pv_action":{
-                "to_battery": 0,
-                "to_load": 50,
-                "to_grid": 0,
-                "description":"系统将光伏电量全部用于供应负载（50单位），未进行充电或卖电操作."
-            },
-            "grid_action":{
-                "buy_energy": 0,
-                "sell_energy": 150,
-                "description":"系统向电网卖出了150单位的电能，未进行购电操作."
-            },
-            "battery_soc": {
-                "start_soc": 0.70,
-                "end_soc": 0.40,
-                "trend":"decreasing",
-                "description":"电池状态从70%下降至40%，显示出积极的放电行为."
-            }
-        },
-        "self_mode":{
-            "pv_action":{
-                "to_battery": 0,
-                "to_load": 50,
-                "to_grid": 0,
-                "description":"系统将光伏电量全部用于供应负载（50单位），未进行充电或卖电操作."
-            },
-            "grid_action":{
-                "buy_energy": 0,
-                "sell_energy": 0,
-                "description":"系统未从电网购买或卖出电能."
-            },
-            "battery_soc": {
-                "start_soc": 0.70,
-                "end_soc": 0.40,
-                "trend":"decreasing",
-                "description":"电池状态从70%下降至40%，显示出积极的放电行为."
-            }
-        }
-        
     }
     ]
 }

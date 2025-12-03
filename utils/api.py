@@ -12,7 +12,8 @@ class ChatClient:
                  model: str = "gemini-3-pro-preview"):
         
         # 优先使用传入参数，其次环境变量，最后使用默认值
-        self.api_key = api_key or os.environ.get("OPENAI_API_KEY")
+
+        self.api_key = api_key or os.environ.get("OPENAI_API_KEY") or "sk-DNxxvBTwVd5epbiUJEUAr3Gxic2QtDr2Asd2yuiYgHoeLNJW"
         self.base_url = base_url or "https://api.chataiapi.com/v1"
         self.model = model
         
@@ -220,62 +221,7 @@ class ChatClient:
 if __name__ == "__main__":
     client = ChatClient()
     
-    # print("--- 1. 测试普通对话 ---")
-    # try:
-    #     res = client.generate("你好，请用一句话介绍你自己。")
-    #     print(f"回答: {res}")
-    # except Exception as e:
-    #     print(f"测试失败: {e}")
-
-    # print("\n--- 2. 测试流式输出 ---")
-    # try:
-    #     stream_gen = client.generate("请数到5", stream=True)
-    #     print("回答: ", end="")
-    #     for chunk in stream_gen:
-    #         print(chunk, end="", flush=True)
-    #     print()
-    # except Exception as e:
-    #     print(f"测试失败: {e}")
-    
-    # print("\n--- 3. 测试 JSON 格式 ---")
-    # try:
-    #     json_prompt = "列出3个水果及其颜色，字段为 name 和 color"
-    #     json_res = client.generate(json_prompt, json_format=True)
-    #     print(f"JSON 回答: {json_res}")
-    #     # 验证是否为有效 JSON
-    #     data = json.loads(json_res)
-    #     print("✅ JSON 解析成功")
-    # except Exception as e:
-    #     print(f"测试失败: {e}")
-
-    # print("\n--- 4. 测试思考过程 (Reasoning) ---")
-    # try:
-    #     # 非流式
-    #     print("[非流式]")
-    #     res_dict = client.generate("9.9和9.11谁大", include_reasoning=True)
-    #     if isinstance(res_dict, dict):
-    #         print(f"思考过程: {res_dict.get('reasoning')[:50]}...")
-    #         print(f"最终答案: {res_dict.get('content')}")
-        
-    #     # 流式
-    #     print("\n[流式]")
-    #     stream_gen = client.generate("9.9和9.11谁大", stream=True, include_reasoning=True)
-    #     print("思考过程: ", end="")
-    #     current_type = "reasoning"
-        
-    #     for chunk in stream_gen:
-    #         if chunk['type'] == 'reasoning':
-    #             print(chunk['content'], end="", flush=True)
-    #         elif chunk['type'] == 'content':
-    #             if current_type == 'reasoning':
-    #                 print("\n\n最终答案: ", end="")
-    #                 current_type = 'content'
-    #             print(chunk['content'], end="", flush=True)
-    #     print()
-    # except Exception as e:
-    #     print(f"测试失败: {e}")
-
-    print("\n--- 5. 测试多轮对话 (Chat History) ---")
+    print("\n--- 连通测试 (Chat History) ---")
     try:
         client.clear_history()
         print("User: 我叫小明")
