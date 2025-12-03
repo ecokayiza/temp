@@ -184,8 +184,6 @@ class Transfer:
         return revenue - cost
 
     def _get_segments_from_api(self, df):
-        # Use full 15-min data for better granularity
-        # df_hourly = df.resample('1H').mean()
         
         csv_data = "Time,AI_SOC,Self_SOC\n"
         # Iterate over all rows (15-min interval)
