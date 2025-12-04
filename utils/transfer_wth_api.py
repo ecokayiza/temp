@@ -456,7 +456,7 @@ class Transfer:
 if __name__ == "__main__":
     transfer = Transfer()
     input_dir = "series"
-    output_dir = "series_input"
+    output_dir = "series_segments_with_api"
     
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)

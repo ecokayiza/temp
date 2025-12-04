@@ -6,15 +6,14 @@
   
   // RAG 检索的核心依据
   "scenario_context": "STRING, 描述该规则适用的具体场景（用于向量嵌入）",
-  "match_tags": ["LIST", "keywords", "negative_price", "peak_shaving"],
 
-  // 逻辑定义 (给程序或大模型二次校验用)
+  // 规则描述
+  "reasoning_comparison": "STRING, 该规则与其他类似规则的区别（用于向量嵌入）",
   "logic_condition": "STRING, 伪代码条件",
-
+  
   // 生成模板 (RAG 的填充素材)
   "templates": {
-    "standard_explanation": "STRING, 标准解释话术",
-    "comparison_narrative": "STRING, 专门用于拉踩传统模式的话术"
+    "user_narrative": "STRING, 标准解释话术"
   },
 
   // 数据槽位 (Prompt 填充时需要的数据)

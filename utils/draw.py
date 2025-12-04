@@ -332,9 +332,7 @@ class Drawer:
         ax.legend(handles=legend_elements, loc='upper center', bbox_to_anchor=(0.5, -0.1), ncol=2, frameon=False, fontsize=8)
 
 
-
-if __name__ == "__main__":
-    
+def main():
     try:
         base_dir = os.path.dirname(__file__) if '__file__' in globals() else os.getcwd()
         input_dir = os.path.join(base_dir, "../series")
@@ -359,16 +357,33 @@ if __name__ == "__main__":
                             data = json.load(f)
                         
                         # Try to load segments
-                        segments = None
-                        seg_path = os.path.join(base_dir, "../series_input", f"{name}.json")
-                        if os.path.exists(seg_path):
-                            try:
-                                with open(seg_path, 'r', encoding='utf-8') as f_seg:
-                                    seg_data = json.load(f_seg)
-                                    segments = seg_data.get('segments', [])
-                                    print(f"  Loaded {len(segments)} segments from {seg_path}")
-                            except Exception as e:
-                                print(f"  Error loading segments: {e}")
+                        segments = []
+                        seg_dir = os.path.join(base_dir, "../series_segments")
+                        if os.path.exists(seg_dir):
+                            # Find all segment files for this date: YYYY-MM-DD_XX.json
+                            seg_pattern = os.path.join(seg_dir, f"{name}_*.json")
+                            seg_files = sorted(glob.glob(seg_pattern))
+                            
+                            for sf in seg_files:
+                                try:
+                                    with open(sf, 'r', encoding='utf-8') as f_seg:
+                                        s_data = json.load(f_seg)
+                                        # Extract needed info for drawing
+                                        # Format: time_range "HH:MM - HH:MM"
+                                        tr = s_data.get('context', {}).get('time_range', '')
+                                        if tr:
+                                            parts = tr.split(' - ')
+                                            if len(parts) == 2:
+                                                segments.append({
+                                                    'start_time': parts[0].strip(),
+                                                    'end_time': parts[1].strip(),
+                                                    'period_type': s_data.get('metadata', {}).get('seg_id', '')
+                                                })
+                                except Exception as e:
+                                    print(f"  Error loading segment file {sf}: {e}")
+                            
+                            if segments:
+                                print(f"  Loaded {len(segments)} segments from {seg_dir}")
 
                         print(f"Processing {fp} -> {out_path}")
                         Drawer.draw_combined_chart(data, output_path=out_path, segments=segments)
@@ -376,3 +391,7 @@ if __name__ == "__main__":
                         print(f"Failed processing {fp}: {e}")
     except Exception as e:
         print(f"Error: {e}")
+
+
+if __name__ == "__main__":
+    main()

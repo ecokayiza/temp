@@ -1,0 +1,62 @@
+{
+    "metadata": {
+        "ps_id": "5096060",
+        "date": "2025-06-26",
+        "seg_id": "07"
+    },
+    "context": {
+        "time_range": "17:00 - 23:45",
+        "duration_minutes": 420,
+        "price_state": "high",
+        "avg_price": 0.6337,
+        "pv_state": "sun_more_load",
+        "total_load_kwh": 9.7,
+        "avg_load_kw": 1.39,
+        "total_pv_kwh": 7.22,
+        "avg_pv_kw": 1.03
+    },
+    "action": {
+        "ai_mode": {
+            "battery": {
+                "soc_start": 1.0,
+                "soc_end": 0.79,
+                "charge_kwh": 0.0,
+                "discharge_kwh": 4.66,
+                "total_kwh": 4.66,
+                "avg_kw": 0.67
+            },
+            "grid": {
+                "buy_kwh": 1.68,
+                "sell_kwh": 0.28,
+                "total_kwh": 1.4,
+                "avg_kw": 0.2
+            },
+            "pv": {
+                "to_battery_kwh": 0.0,
+                "to_load_kwh": 3.64,
+                "to_grid_kwh": 3.59
+            }
+        },
+        "self_mode": {
+            "battery": {
+                "soc_start": 1.0,
+                "soc_end": 0.8,
+                "charge_kwh": 0.0,
+                "discharge_kwh": 4.84,
+                "total_kwh": 4.84,
+                "avg_kw": 0.69
+            },
+            "grid": {
+                "buy_kwh": 0.0,
+                "sell_kwh": 1.55,
+                "total_kwh": -1.55,
+                "avg_kw": -0.22
+            },
+            "pv": {
+                "to_battery_kwh": 0.0,
+                "to_load_kwh": 3.75,
+                "to_grid_kwh": 3.48
+            }
+        }
+    }
+}
