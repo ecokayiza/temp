@@ -3,8 +3,8 @@
 
 *   `./format/`: 数据格式定义参考
     *   `data_format.json`: 原始时间序列数据格式
-    *   `input_format.json`: 模型训练输入格式（已废弃，参考 `series_segments`）
     *   `rule_format.json`: 模型输出规则格式
+
 *   `./series/`: 每天的原始运行数据 (JSON)
 *   `./series_segments/`: **[核心]** 经过逻辑切分后的分段数据，作为模型的直接输入
 *   `./series_graph/`: 可视化图表（包含原始曲线和分段标记）
