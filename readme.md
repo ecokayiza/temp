@@ -13,7 +13,7 @@
 
     *   `api.py`: LLM API 调用工具
     *   `slice_graph` 、 `gen_proba_data.py`: 获取参考数据
-    *   `slice_day.py`: **[核心]** 数据分段与特征提取脚本(使用规则和变化点)
+    *   `slice_day.py`: **[核心]** 数据分段与特征提取脚本(使用状态向量)
     *   `draw.py`: 数据可视化脚本
 
 ## 数据处理流程
