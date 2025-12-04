@@ -21,11 +21,12 @@
     "ai_mode": [
       {
         "time": "00:00",
+        "soc": 0.52,
         "battery_from_pv": 0,
-        "battery_from_grid": 0,
         "battery_to_load": 1600,
+        "battery_from_grid": 0,
         "battery_to_grid": 0,
-        "soc": 0.52
+        "ai_total_power": -1600
       }
     ],
     "self_mode": [
@@ -35,7 +36,8 @@
         "battery_from_pv": 0,
         "battery_to_load": 1500,
         "battery_from_grid": 0,
-        "battery_to_grid": 0
+        "battery_to_grid": 0,
+        "self_total_power": -1500
       }
     ],
     "grid_power": [

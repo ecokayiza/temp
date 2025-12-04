@@ -167,6 +167,10 @@ class Transfer:
         df_ai = df_ai.add_prefix('ai_')
         df_self = df_self.add_prefix('self_')
         
+        # Fix double prefix if exists (e.g. ai_ai_total_power -> ai_total_power)
+        df_ai.columns = [c.replace('ai_ai_', 'ai_') for c in df_ai.columns]
+        df_self.columns = [c.replace('self_self_', 'self_') for c in df_self.columns]
+        
         common_index = pd.date_range(start=f"{base_date} 00:00", end=f"{base_date} 23:45", freq='15min')
         
         def reindex(df):
@@ -191,13 +195,15 @@ class Transfer:
                 if f'{prefix}{c}' not in df_final.columns:
                     df_final[f'{prefix}{c}'] = 0
             
-            df_final[f'{prefix}total_power'] = (
-                df_final[f'{prefix}battery_to_load'] + 
-                df_final[f'{prefix}battery_to_grid']
-            ) - (
-                df_final[f'{prefix}battery_from_pv'] + 
-                df_final[f'{prefix}battery_from_grid']
-            )
+            # Use pre-calculated total_power if available, otherwise calculate it
+            if f'{prefix}total_power' not in df_final.columns:
+                df_final[f'{prefix}total_power'] = (
+                    df_final[f'{prefix}battery_to_load'] + 
+                    df_final[f'{prefix}battery_to_grid']
+                ) - (
+                    df_final[f'{prefix}battery_from_pv'] + 
+                    df_final[f'{prefix}battery_from_grid']
+                )
 
         return df_final
 

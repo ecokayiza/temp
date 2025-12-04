@@ -110,22 +110,40 @@ def generate_series_data():
                     "price_sell": g("Price_Sell")
                 })
                 
+                # AI Mode
+                ai_soc = g("AI_SOC")
+                ai_bat_from_pv = g("AI_Bat_From_PV")
+                ai_bat_from_grid = g("AI_Bat_From_Grid")
+                ai_bat_to_load = g("AI_Bat_To_Load")
+                ai_bat_to_grid = g("AI_Bat_To_Grid")
+                ai_total_power = (ai_bat_to_load + ai_bat_to_grid) - (ai_bat_from_pv + ai_bat_from_grid)
+
                 datasets["ai_mode"].append({
                     "time": t,
-                    "soc": g("AI_SOC"),
-                    "battery_from_pv": g("AI_Bat_From_PV"),
-                    "battery_from_grid": g("AI_Bat_From_Grid"),
-                    "battery_to_load": g("AI_Bat_To_Load"),
-                    "battery_to_grid": g("AI_Bat_To_Grid")
+                    "soc": ai_soc,
+                    "battery_from_pv": ai_bat_from_pv,
+                    "battery_from_grid": ai_bat_from_grid,
+                    "battery_to_load": ai_bat_to_load,
+                    "battery_to_grid": ai_bat_to_grid,
+                    "ai_total_power": ai_total_power
                 })
                 
+                # Self Mode
+                self_soc = g("Self_SOC")
+                self_bat_from_pv = g("Self_Bat_From_PV")
+                self_bat_from_grid = g("Self_Bat_From_Grid")
+                self_bat_to_load = g("Self_Bat_To_Load")
+                self_bat_to_grid = g("Self_Bat_To_Grid")
+                self_total_power = (self_bat_to_load + self_bat_to_grid) - (self_bat_from_pv + self_bat_from_grid)
+
                 datasets["self_mode"].append({
                     "time": t,
-                    "soc": g("Self_SOC"),
-                    "battery_from_pv": g("Self_Bat_From_PV"),
-                    "battery_from_grid": g("Self_Bat_From_Grid"),
-                    "battery_to_load": g("Self_Bat_To_Load"),
-                    "battery_to_grid": g("Self_Bat_To_Grid")
+                    "soc": self_soc,
+                    "battery_from_pv": self_bat_from_pv,
+                    "battery_from_grid": self_bat_from_grid,
+                    "battery_to_load": self_bat_to_load,
+                    "battery_to_grid": self_bat_to_grid,
+                    "self_total_power": self_total_power
                 })
                 
                 datasets["grid_power"].append({
